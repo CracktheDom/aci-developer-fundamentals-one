@@ -124,4 +124,6 @@ def test_classes():
     print(next(sales_iter))
     print(next(sales_iter))
 
-test_classes()
+
+if __name__ == "__main__":
+    test_classes()
