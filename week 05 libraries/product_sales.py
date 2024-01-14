@@ -117,5 +117,11 @@ def test_classes():
     # Print the generated sales report
     print(sales.generate_report())
 
+    sales_iter = sales.__iter__()
+    print(next(sales_iter))
+    print(next(sales_iter))
+    print(next(sales_iter))
+    print(next(sales_iter))
+    print(next(sales_iter))
 
 test_classes()
