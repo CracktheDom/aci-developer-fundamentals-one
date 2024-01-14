@@ -38,6 +38,19 @@ class Sales:
         """
         self.sales_data = list()
 
+    def __iter__(self):
+        self.index = 0
+        return self
+
+    def __next__(self):
+        if self.index >= len(self.sales_data):
+            raise StopIteration
+        name = self.sales_data[self.index]["product"].name
+        quantity = self.sales_data[self.index]["quantity"]
+        sale = f"You sold {quantity} of {name}."
+        self.index += 1
+        return sale
+
     def add_sale(self, product: Product, quantity: int):
         """
         Adds a sale to the sales data list.
