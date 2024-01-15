@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Product1",
+        "description": "This is product 1"
+    },
+    {
+        "name": "Product2",
+        "price": 15.99,
+        "description": "This is product 2"
+    },
+    {
+        "price": 25.99,
+        "description": "This is product 3"
+    },
+    {
+        "name": "Product4",
+        "price": 5.99,
+        "description": "This is product 4"
+    },
+    {
+         "name": "Product10",
+         "price": 86.66,
+         "description": "This is Product10"
+     },
+     {
+         "name": "Product11",
+         "price": 66.89,
+         "description": "This is Product11"
+     },
+     {
+         "price": 127.11,
+         "description": "This is Product12"
+     },
+     {
+         "name": "Product13",
+         "price": 94.92,
+         "description": "This is Product13"
+     },
+     {
+         "name": "Product14",
+         "description": "This is Product14"
+     },
+     {
+         "name": "Product15",
+         "price": 41.66,
+         "description": "This is Product15"
+     },
+     {
+         "name": "Product16",
+         "price": 72.37,
+         "description": "This is Product16"
+     },
+     {
+         "price": 40.95,
+         "description": "This is Product17"
+     },
+     {
+         "name": "Product18",
+         "price": 5.87,
+         "description": "This is Product18"
+     },
+     {
+         "name": "Product19",
+         "price": 139.54,
+         "description": "This is Product19"
+     },
+     {
+         "name": "Product20",
+         "price": 43.96,
+         "description": "This is Product20"
+     }
+ ]
