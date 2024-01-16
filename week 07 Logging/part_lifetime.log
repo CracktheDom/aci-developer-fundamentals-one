@@ -1,0 +1,71 @@
+2024-01-15 22:45:29,536 INFO Entered the get_part_id function
+2024-01-15 22:45:34,971 INFO Correct format of part ID inputted
+2024-01-15 22:45:40,407 INFO date entered correctly: 2024-02-03 00:00:00
+2024-01-15 22:45:58,268 INFO Entered the get_part_id function
+2024-01-15 22:46:04,671 INFO Correct format of part ID inputted
+2024-01-15 22:46:16,346 ERROR Incorrect date format inputted: 23-5-1654
+2024-01-15 22:54:28,822 INFO Entered the get_part_id function
+2024-01-15 22:54:41,025 INFO Correct format of part ID inputted: {response}
+2024-01-15 22:57:47,233 ERROR Incorrect date format inputted: 22-55-6458
+2024-01-15 22:58:28,875 INFO date entered correctly: 1111-03-02 00:00:00
+2024-01-15 22:58:52,313 INFO Entered the get_part_id function
+2024-01-15 22:59:23,063 ERROR Incorrect part number inputted: ?
+2024-01-15 22:59:28,751 INFO Correct format of part ID inputted: {response}
+2024-01-15 23:00:10,326 ERROR Incorrect date format inputted: 2-65-6578
+2024-01-15 23:00:24,075 INFO date entered correctly: 2077-05-06 00:00:00
+2024-01-16 00:04:34,099 INFO Entered the set_part_id function
+2024-01-16 00:04:39,645 INFO Correct format of part ID inputted: bg67
+2024-01-16 00:04:39,645 INFO Entered the set_install_date function
+2024-01-16 00:04:52,932 INFO date entered correctly: 2020-02-02 00:00:00
+2024-01-16 00:07:22,046 INFO Entered the set_part_id function
+2024-01-16 00:07:25,499 INFO Correct format of part ID inputted: kj87
+2024-01-16 00:07:25,499 INFO Entered the set_install_date function
+2024-01-16 00:07:30,463 INFO date entered correctly: 2020-02- 02 00:00:00
+2024-01-16 00:07:30,463 INFO Entered the get_max_part_life function
+2024-01-16 00:07:30,463 INFO This part, kj87, has been in use for 34656.12512873667 hours
+2024-01-16 00:08:25,799 INFO Entered the set_part_id function
+2024-01-16 00:08:29,280 INFO Correct format of part ID inputted: pl98
+2024-01-16 00:08:29,280 INFO Entered the set_install_date function
+2024-01-16 00:08:38,095 INFO date entered correctly: 2022-02-02 00:00:00
+2024-01-16 00:08:38,095 INFO Entered the get_max_part_life function
+2024-01-16 00:08:38,095 INFO This part, pl98, has been in use for 17112.143915478056 hours
+2024-01-16 00:09:08,843 INFO Max life of part, pl98, is 30000 hours
+2024-01-16 00:09:08,843 INFO Part id: pl98 is good with 12887.856084521944 hours remianing.
+2024-01-16 00:12:20,035 INFO Entered the set_part_id function
+2024-01-16 00:12:30,371 INFO Correct format of part ID inputted: vl03
+2024-01-16 00:12:30,371 INFO Entered the set_install_date function
+2024-01-16 00:12:40,122 INFO date entered correctly: 2020-02-02 00:00:00
+2024-01-16 00:12:40,122 INFO Entered the get_max_part_life function
+2024-01-16 00:12:40,122 INFO This part, vl03, has been in use for 34656.21114513694 hours
+2024-01-16 00:12:50,875 INFO Max life of part id, vl03, is 35000.000 hours
+2024-01-16 00:13:28,591 INFO Entered the set_part_id function
+2024-01-16 00:13:32,986 INFO Correct format of part ID inputted: vl03
+2024-01-16 00:13:32,986 INFO Entered the set_install_date function
+2024-01-16 00:13:38,495 INFO date entered correctly: 2020-02-02 00:00:00
+2024-01-16 00:13:38,495 INFO Entered the get_max_part_life function
+2024-01-16 00:13:38,496 INFO This part, vl03, has been in use for 34656.22735992 hours
+2024-01-16 00:13:43,183 INFO Max life of part id, vl03, is 35000.000 hours
+2024-01-16 00:13:43,183 WARNING Part id: vl03 has less than 20% of service life remaining. Replace in less than 343.772640080002 hours.
+2024-01-16 00:15:50,248 INFO Entered the set_part_id function
+2024-01-16 00:15:56,556 INFO Correct format of part ID inputted: vl03
+2024-01-16 00:15:56,556 INFO Entered the set_install_date function
+2024-01-16 00:16:08,586 INFO date entered correctly: 2020-02-02 00:00:00
+2024-01-16 00:16:08,586 INFO Entered the get_max_part_life function
+2024-01-16 00:16:08,586 INFO This part, vl03, has been in use for 34656.269051751944 hours
+2024-01-16 00:16:17,309 INFO Max life of part id, vl03, is 35000 hours
+2024-01-16 00:16:17,310 WARNING Part id: vl03 has less than 20% of service life remaining. Replace in less than 343.731 hours.
+2024-01-16 00:39:35,878 INFO Entered the set_part_id function
+2024-01-16 00:39:40,501 INFO Correct format of part ID inputted: yt45
+2024-01-16 00:39:40,501 INFO Entered the set_install_date function
+2024-01-16 00:41:20,217 INFO Entered the set_part_id function
+2024-01-16 00:41:23,406 INFO Correct format of part ID inputted: hg65
+2024-01-16 00:41:23,406 INFO Entered the set_install_date function
+2024-01-16 00:46:57,125 INFO Entered the set_part_id function
+2024-01-16 00:47:00,866 INFO Correct format of part ID inputted: bj54
+2024-01-16 00:47:00,866 INFO Entered the set_install_date function
+2024-01-16 00:47:07,364 ERROR Incorrect date format inputted: 2-65-2013
+2024-01-16 00:47:18,145 INFO Date entered correctly: 2022-02-15 00:00:00
+2024-01-16 00:47:18,145 INFO Entered the get_max_part_life function
+2024-01-16 00:47:18,145 INFO This part, bj54, has been in use for 16800.7883738025 hours
+2024-01-16 00:48:24,877 INFO Max life of part id, bj54, is 16500 hours
+2024-01-16 00:48:24,878 CRITICAL Part id: bj54 has exceeded its service life. REPLACE IMMEDIATELY!!!
