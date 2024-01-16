@@ -27,48 +27,20 @@ def set_part_id() -> str:
     - A valid part ID should consist of 2 alphabetical characters followed by 2 numeric characters.
     """
     logging.info("Entered the set_part_id function")
-    response = ""
-
-    # Check if the first two characters are alphabetic
-    first_two_alpha = response[:2].isalpha()
-
-    # Check if the next two characters are only digits
-    last_two_digit = response[2:].isnumeric()
-
-    try:
-        while (
-            not response[:2].isalpha()
-            or not response[2:].isdigit()
-            or len(response) != 4
-        ):
-            response = input(
-                f"Please enter part ID, i.e. {choice(ascii_lowercase)}{choice(ascii_lowercase)}{randint(10, 99)}: "
-            )
-
-            # Check if the first two characters are alphabetic
-            first_two_alpha = response[:2].isalpha()
-
-            # Check if the next two characters are only digits
-            last_two_digit = response[2:].isnumeric()
-
-            # validate input is alphanumeric & four chars long
-            if not (
-                len(response) == 4
-                and response[:2].isalpha()
-                and response[2:].isnumeric()
-            ):
-                logging.error(f"Incorrect part number inputted: {response}")
-                print(
-                    f"Try again \nIncorrect part number inputted, please use correct format, i.e. {choice(ascii_lowercase)}{choice(ascii_lowercase)}{randint(10, 99)}"
-                )
-            else:
-                logging.info(f"Correct format of part ID inputted: {response}")
-                return response
-    except ValueError as e:
-        print(
-            f"{e}: Incorrect part number inputted, please correct format, i.e. {choice(string.ascii_letters)}{choice(string.ascii_letters)}{randint(10, 99)}"
+    while True:
+        response = input(
+            f"Please enter a 4-character string (2 alphabetic, 2 numeric) i.e. {choice(ascii_lowercase)}{choice(ascii_lowercase)}{randint(10, 99)}: "
         )
-        logging.error(f"Incorrect part number inputted: {response}")
+
+        # validate input is alphanumeric & four chars long
+        if len(response) == 4 and response[:2].isalpha() and response[2:].isnumeric():
+            logging.info(f"Correct format of part ID inputted: {response}")
+            return response
+        else:
+            logging.error(f"Incorrect part number inputted: {response}")
+            print(
+                f"Try again, please use correct format, i.e. {choice(ascii_lowercase)}{choice(ascii_lowercase)}{randint(10, 99)}"
+            )
 
 
 def set_install_date(part_id: str) -> datetime:
