@@ -1,9 +1,10 @@
 """
-The Python program below prompts a user to input integers. When the user enters 'quit',
-the program displays statistics about the numbers the user has entered.
-Modify the code below so that it also displays the sum, minimum, maximum, and average of
-the user input.
+The Python program below prompts a user to input integers. When the user enters
+'quit', the program displays statistics about the numbers the user has entered.
+Modify the code below so that it also displays the sum, minimum, maximum, and
+average of the user input.
 """
+
 # Initialize variables
 value = ""
 my_sum = 0
