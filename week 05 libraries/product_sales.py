@@ -91,7 +91,9 @@ class Sales:
             final_report += f'# of {unique_product} units sold: {total_products_sold[unique_product]}, resulting in revenue of ${total_products_sold[unique_product] * float(unique_product.__str__().split("$")[1].strip(")")):,.2f}\n'
 
         # Add total revenue to the report
-        final_report += f"Total revenue for all products sold is ${total_revenue:,.2f}."
+        final_report += (
+            f"Total revenue for all products sold is ${total_revenue:,.2f}.\n"
+        )
         return final_report
 
 
