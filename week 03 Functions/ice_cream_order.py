@@ -25,3 +25,10 @@ NUMBER_OF_SCOOPS = (1, 2, 3)
 FLAVOR = (vanilla, strawberry, chocolate, cherry, mint, peach, grape)
 
 order_id = 0
+is_finished = False
+is_valid_input = False
+
+print("Greetings, how can I help you today?")
+while not is_finished:
+
+
