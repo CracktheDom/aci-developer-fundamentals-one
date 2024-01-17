@@ -8,7 +8,8 @@ Write a program to perform the following tasks:
 * Merge the two lists together into a single list
 * Display the average weight of the fish from both catches.
 * Display the average length of the fish from both catches.
-* Print the angler, id, and weight of any fish caught that weighed 24 ounces or more.
+* Print the angler, id, and weight of any fish caught that weighed 24 ounces or
+ more.
 """
 
 import statistics
@@ -35,14 +36,16 @@ for angler_catch in marys_catch:
 for angler_catch in marthas_catch:
     angler_catch["angler"] = "Martha"
 
-merged_list = marys_catch + marthas_catch
-weight_list = [elem["weight"] for elem in merged_list]
-length_list = [elem["length"] for elem in merged_list]
-heavy_list = [elem for elem in merged_list if elem["weight"] >= 24.0]
+merged_list: list[dict[str : int | float]] = marys_catch + marthas_catch
+weight_list: list[float] = [elem["weight"] for elem in merged_list]
+length_list: list[float] = [elem["length"] for elem in merged_list]
+heavier_than_24_list: list[dict[str : int | float]] = [
+    elem for elem in merged_list if elem["weight"] >= 24.0
+]
 
 print(marys_catch)
 print(merged_list)
 print(f"average weight: {statistics.mean(weight_list)}")
 print(f"average length: {statistics.mean(length_list)}")
-for elem in heavy_list:
-    print(f"angler: {elem['angler']} id: {elem['id']} weight: {elem['weight']}")
+for elem in heavier_than_24_list:
+    print(f"angler: {elem['angler']}, id: {elem['id']}, weight: {elem['weight']}")
