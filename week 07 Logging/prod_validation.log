@@ -1,0 +1,240 @@
+2024-01-15 15:21:38,301 INFO data type of json_obj is <class 'list'>
+2024-01-15 15:31:11,922 ERROR Product name and/or price is missing from {'name': 'Product1', 'description': 'This is product 1'}
+2024-01-15 15:31:11,923 INFO Product2 added to inventory
+2024-01-15 15:31:11,923 ERROR Product name and/or price is missing from {'price': 25.99, 'description': 'This is product 3'}
+2024-01-15 15:31:11,923 INFO Product4 added to inventory
+2024-01-15 15:31:58,744 ERROR Product name and/or price is missing from {'name': 'Product1', 'description': 'This is product 1'}
+2024-01-15 15:31:58,744 INFO Product2 added to inventory
+2024-01-15 15:31:58,745 ERROR Product name and/or price is missing from {'price': 25.99, 'description': 'This is product 3'}
+2024-01-15 15:31:58,745 INFO Product4 added to inventory
+2024-01-15 16:26:27,944 ERROR Product name and/or price is missing from {'name': 'Product1', 'description': 'This is product 1'}
+2024-01-15 16:26:27,944 INFO Product2 added to inventory
+2024-01-15 16:26:27,947 ERROR Product name and/or price is missing from {'price': 25.99, 'description': 'This is product 3'}
+2024-01-15 16:26:27,947 INFO Product4 added to inventory
+2024-01-15 16:26:27,947 INFO Product10 added to inventory
+2024-01-15 16:26:27,947 INFO Product11 added to inventory
+2024-01-15 16:26:27,947 ERROR Product name and/or price is missing from {'price': 127.11, 'description': 'This is Product12'}
+2024-01-15 16:26:27,947 INFO Product13 added to inventory
+2024-01-15 16:26:27,947 ERROR Product name and/or price is missing from {'name': 'Product14', 'description': 'This is Product14'}
+2024-01-15 16:26:27,947 INFO Product15 added to inventory
+2024-01-15 16:26:27,947 INFO Product16 added to inventory
+2024-01-15 16:26:27,947 ERROR Product name and/or price is missing from {'price': 40.95, 'description': 'This is Product17'}
+2024-01-15 16:26:27,947 INFO Product18 added to inventory
+2024-01-15 16:26:27,947 INFO Product19 added to inventory
+2024-01-15 16:26:27,947 INFO Product20 added to inventory
+2024-01-15 16:44:58,354 ERROR Product name and/or price is missing from {'name': 'Product1', 'description': 'This is product 1'}
+2024-01-15 16:44:58,354 INFO Product2 added to inventory
+2024-01-15 16:44:58,354 ERROR Product name and/or price is missing from {'price': 25.99, 'description': 'This is product 3'}
+2024-01-15 16:44:58,354 INFO Product4 added to inventory
+2024-01-15 16:44:58,354 INFO Product10 added to inventory
+2024-01-15 16:44:58,354 INFO Product11 added to inventory
+2024-01-15 16:44:58,354 ERROR Product name and/or price is missing from {'price': 127.11, 'description': 'This is Product12'}
+2024-01-15 16:44:58,354 INFO Product13 added to inventory
+2024-01-15 16:44:58,354 ERROR Product name and/or price is missing from {'name': 'Product14', 'description': 'This is Product14'}
+2024-01-15 16:44:58,354 INFO Product15 added to inventory
+2024-01-15 16:44:58,354 INFO Product16 added to inventory
+2024-01-15 16:44:58,354 ERROR Product name and/or price is missing from {'price': 40.95, 'description': 'This is Product17'}
+2024-01-15 16:44:58,354 INFO Product18 added to inventory
+2024-01-15 16:44:58,354 INFO Product19 added to inventory
+2024-01-15 16:44:58,355 INFO Product20 added to inventory
+2024-01-15 16:52:30,219 ERROR Product name and/or price is missing from {'name': 'Product1', 'description': 'This is product 1'}
+2024-01-15 16:52:30,219 INFO Product2 added to inventory
+2024-01-15 16:52:30,219 ERROR Product name and/or price is missing from {'price': 25.99, 'description': 'This is product 3'}
+2024-01-15 16:52:30,219 INFO Product4 added to inventory
+2024-01-15 16:52:30,219 INFO Product10 added to inventory
+2024-01-15 16:52:30,219 INFO Product11 added to inventory
+2024-01-15 16:52:30,219 ERROR Product name and/or price is missing from {'price': 127.11, 'description': 'This is Product12'}
+2024-01-15 16:52:30,221 INFO Product13 added to inventory
+2024-01-15 16:52:30,221 ERROR Product name and/or price is missing from {'name': 'Product14', 'description': 'This is Product14'}
+2024-01-15 16:52:30,221 INFO Product15 added to inventory
+2024-01-15 16:52:30,221 INFO Product16 added to inventory
+2024-01-15 16:52:30,221 ERROR Product name and/or price is missing from {'price': 40.95, 'description': 'This is Product17'}
+2024-01-15 16:52:30,221 INFO Product18 added to inventory
+2024-01-15 16:52:30,221 INFO Product19 added to inventory
+2024-01-15 16:52:30,221 INFO Product20 added to inventory
+2024-01-15 16:53:29,972 ERROR Product name and/or price is missing from {'name': 'Product1', 'description': 'This is product 1'}
+2024-01-15 16:53:29,972 INFO Product2 added to inventory
+2024-01-15 16:53:29,972 ERROR Product name and/or price is missing from {'price': 25.99, 'description': 'This is product 3'}
+2024-01-15 16:53:29,972 INFO Product4 added to inventory
+2024-01-15 16:53:29,972 INFO Product10 added to inventory
+2024-01-15 16:53:29,972 INFO Product11 added to inventory
+2024-01-15 16:53:29,973 ERROR Product name and/or price is missing from {'price': 127.11, 'description': 'This is Product12'}
+2024-01-15 16:53:29,973 INFO Product13 added to inventory
+2024-01-15 16:53:29,973 ERROR Product name and/or price is missing from {'name': 'Product14', 'description': 'This is Product14'}
+2024-01-15 16:53:29,973 INFO Product15 added to inventory
+2024-01-15 16:53:29,973 INFO Product16 added to inventory
+2024-01-15 16:53:29,973 ERROR Product name and/or price is missing from {'price': 40.95, 'description': 'This is Product17'}
+2024-01-15 16:53:29,973 INFO Product18 added to inventory
+2024-01-15 16:53:29,973 INFO Product19 added to inventory
+2024-01-15 16:53:29,973 INFO Product20 added to inventory
+2024-01-15 16:55:29,279 ERROR Product name and/or price is missing from {'name': 'Product1', 'description': 'This is product 1'}
+2024-01-15 16:55:29,279 INFO Product2 added to inventory
+2024-01-15 16:55:29,280 ERROR Product name and/or price is missing from {'price': 25.99, 'description': 'This is product 3'}
+2024-01-15 16:55:29,280 INFO Product4 added to inventory
+2024-01-15 16:55:29,280 INFO Product10 added to inventory
+2024-01-15 16:55:29,280 INFO Product11 added to inventory
+2024-01-15 16:55:29,280 ERROR Product name and/or price is missing from {'price': 127.11, 'description': 'This is Product12'}
+2024-01-15 16:55:29,280 INFO Product13 added to inventory
+2024-01-15 16:55:29,280 ERROR Product name and/or price is missing from {'name': 'Product14', 'description': 'This is Product14'}
+2024-01-15 16:55:29,280 INFO Product15 added to inventory
+2024-01-15 16:55:29,280 INFO Product16 added to inventory
+2024-01-15 16:55:29,280 ERROR Product name and/or price is missing from {'price': 40.95, 'description': 'This is Product17'}
+2024-01-15 16:55:29,280 INFO Product18 added to inventory
+2024-01-15 16:55:29,280 INFO Product19 added to inventory
+2024-01-15 16:55:29,280 INFO Product20 added to inventory
+2024-01-15 16:58:11,352 ERROR Product name and/or price is missing from {'name': 'Product1', 'description': 'This is product 1'}
+2024-01-15 16:58:11,352 INFO Product2 added to inventory
+2024-01-15 16:58:11,352 ERROR Product name and/or price is missing from {'price': 25.99, 'description': 'This is product 3'}
+2024-01-15 16:58:11,352 INFO Product4 added to inventory
+2024-01-15 16:58:11,353 INFO Product10 added to inventory
+2024-01-15 16:58:11,353 INFO Product11 added to inventory
+2024-01-15 16:58:11,353 ERROR Product name and/or price is missing from {'price': 127.11, 'description': 'This is Product12'}
+2024-01-15 16:58:11,353 INFO Product13 added to inventory
+2024-01-15 16:58:11,353 ERROR Product name and/or price is missing from {'name': 'Product14', 'description': 'This is Product14'}
+2024-01-15 16:58:11,353 INFO Product15 added to inventory
+2024-01-15 16:58:11,353 INFO Product16 added to inventory
+2024-01-15 16:58:11,353 ERROR Product name and/or price is missing from {'price': 40.95, 'description': 'This is Product17'}
+2024-01-15 16:58:11,353 INFO Product18 added to inventory
+2024-01-15 16:58:11,353 INFO Product19 added to inventory
+2024-01-15 16:58:11,353 INFO Product20 added to inventory
+2024-01-15 16:59:00,402 ERROR Product name and/or price is missing from {'name': 'Product1', 'description': 'This is product 1'}
+2024-01-15 16:59:00,402 INFO Product2 added to inventory
+2024-01-15 16:59:00,402 ERROR Product name and/or price is missing from {'price': 25.99, 'description': 'This is product 3'}
+2024-01-15 16:59:00,402 INFO Product4 added to inventory
+2024-01-15 16:59:00,402 INFO Product10 added to inventory
+2024-01-15 16:59:00,402 INFO Product11 added to inventory
+2024-01-15 16:59:00,402 ERROR Product name and/or price is missing from {'price': 127.11, 'description': 'This is Product12'}
+2024-01-15 16:59:00,402 INFO Product13 added to inventory
+2024-01-15 16:59:00,402 ERROR Product name and/or price is missing from {'name': 'Product14', 'description': 'This is Product14'}
+2024-01-15 16:59:00,402 INFO Product15 added to inventory
+2024-01-15 16:59:00,402 INFO Product16 added to inventory
+2024-01-15 16:59:00,402 ERROR Product name and/or price is missing from {'price': 40.95, 'description': 'This is Product17'}
+2024-01-15 16:59:00,403 INFO Product18 added to inventory
+2024-01-15 16:59:00,403 INFO Product19 added to inventory
+2024-01-15 16:59:00,403 INFO Product20 added to inventory
+2024-01-15 17:01:17,121 ERROR Product name and/or price is missing from {'name': 'Product1', 'description': 'This is product 1'}
+2024-01-15 17:01:17,121 INFO Product2 added to inventory
+2024-01-15 17:01:17,121 ERROR Product name and/or price is missing from {'price': 25.99, 'description': 'This is product 3'}
+2024-01-15 17:01:17,121 INFO Product4 added to inventory
+2024-01-15 17:01:17,121 INFO Product10 added to inventory
+2024-01-15 17:01:17,121 INFO Product11 added to inventory
+2024-01-15 17:01:17,121 ERROR Product name and/or price is missing from {'price': 127.11, 'description': 'This is Product12'}
+2024-01-15 17:01:17,121 INFO Product13 added to inventory
+2024-01-15 17:01:17,121 ERROR Product name and/or price is missing from {'name': 'Product14', 'description': 'This is Product14'}
+2024-01-15 17:01:17,121 INFO Product15 added to inventory
+2024-01-15 17:01:17,121 INFO Product16 added to inventory
+2024-01-15 17:01:17,121 ERROR Product name and/or price is missing from {'price': 40.95, 'description': 'This is Product17'}
+2024-01-15 17:01:17,122 INFO Product18 added to inventory
+2024-01-15 17:01:17,122 INFO Product19 added to inventory
+2024-01-15 17:01:17,122 INFO Product20 added to inventory
+2024-01-15 17:01:17,122 ERROR Product name and/or price is missing from {'name': 'Product1', 'description': 'This is product 1'}
+2024-01-15 17:01:17,122 INFO Product2 added to inventory
+2024-01-15 17:01:17,122 ERROR Product name and/or price is missing from {'price': 25.99, 'description': 'This is product 3'}
+2024-01-15 17:01:17,122 INFO Product4 added to inventory
+2024-01-15 17:01:17,122 INFO Product10 added to inventory
+2024-01-15 17:01:17,122 INFO Product11 added to inventory
+2024-01-15 17:01:17,122 ERROR Product name and/or price is missing from {'price': 127.11, 'description': 'This is Product12'}
+2024-01-15 17:01:17,122 INFO Product13 added to inventory
+2024-01-15 17:01:17,122 ERROR Product name and/or price is missing from {'name': 'Product14', 'description': 'This is Product14'}
+2024-01-15 17:01:17,122 INFO Product15 added to inventory
+2024-01-15 17:01:17,122 INFO Product16 added to inventory
+2024-01-15 17:01:17,122 ERROR Product name and/or price is missing from {'price': 40.95, 'description': 'This is Product17'}
+2024-01-15 17:01:17,122 INFO Product18 added to inventory
+2024-01-15 17:01:17,122 INFO Product19 added to inventory
+2024-01-15 17:01:17,122 INFO Product20 added to inventory
+2024-01-15 17:03:44,976 ERROR Product name and/or price is missing from {'name': 'Product1', 'description': 'This is product 1'}
+2024-01-15 17:03:44,976 INFO Product2 added to inventory
+2024-01-15 17:03:44,976 ERROR Product name and/or price is missing from {'price': 25.99, 'description': 'This is product 3'}
+2024-01-15 17:03:44,976 INFO Product4 added to inventory
+2024-01-15 17:03:44,976 INFO Product10 added to inventory
+2024-01-15 17:03:44,977 INFO Product11 added to inventory
+2024-01-15 17:03:44,977 ERROR Product name and/or price is missing from {'price': 127.11, 'description': 'This is Product12'}
+2024-01-15 17:03:44,977 INFO Product13 added to inventory
+2024-01-15 17:03:44,977 ERROR Product name and/or price is missing from {'name': 'Product14', 'description': 'This is Product14'}
+2024-01-15 17:03:44,977 INFO Product15 added to inventory
+2024-01-15 17:03:44,977 INFO Product16 added to inventory
+2024-01-15 17:03:44,977 ERROR Product name and/or price is missing from {'price': 40.95, 'description': 'This is Product17'}
+2024-01-15 17:03:44,977 INFO Product18 added to inventory
+2024-01-15 17:03:44,977 INFO Product19 added to inventory
+2024-01-15 17:03:44,977 INFO Product20 added to inventory
+2024-01-15 17:03:44,978 ERROR write() argument must be str, not None: ./inventory.json does not exists.
+2024-01-15 17:03:44,978 ERROR Product name and/or price is missing from {'name': 'Product1', 'description': 'This is product 1'}
+2024-01-15 17:03:44,978 INFO Product2 added to inventory
+2024-01-15 17:03:44,978 ERROR Product name and/or price is missing from {'price': 25.99, 'description': 'This is product 3'}
+2024-01-15 17:03:44,978 INFO Product4 added to inventory
+2024-01-15 17:03:44,978 INFO Product10 added to inventory
+2024-01-15 17:03:44,978 INFO Product11 added to inventory
+2024-01-15 17:03:44,978 ERROR Product name and/or price is missing from {'price': 127.11, 'description': 'This is Product12'}
+2024-01-15 17:03:44,979 INFO Product13 added to inventory
+2024-01-15 17:03:44,979 ERROR Product name and/or price is missing from {'name': 'Product14', 'description': 'This is Product14'}
+2024-01-15 17:03:44,979 INFO Product15 added to inventory
+2024-01-15 17:03:44,979 INFO Product16 added to inventory
+2024-01-15 17:03:44,979 ERROR Product name and/or price is missing from {'price': 40.95, 'description': 'This is Product17'}
+2024-01-15 17:03:44,979 INFO Product18 added to inventory
+2024-01-15 17:03:44,979 INFO Product19 added to inventory
+2024-01-15 17:03:44,979 INFO Product20 added to inventory
+2024-01-15 17:03:44,980 ERROR write() argument must be str, not None: ./inventory.json does not exists.
+2024-01-15 17:09:27,679 ERROR Product name and/or price is missing from {'name': 'Product1', 'description': 'This is product 1'}
+2024-01-15 17:09:27,679 INFO Product2 added to inventory
+2024-01-15 17:09:27,679 ERROR Product name and/or price is missing from {'price': 25.99, 'description': 'This is product 3'}
+2024-01-15 17:09:27,679 INFO Product4 added to inventory
+2024-01-15 17:09:27,679 INFO Product10 added to inventory
+2024-01-15 17:09:27,679 INFO Product11 added to inventory
+2024-01-15 17:09:27,679 ERROR Product name and/or price is missing from {'price': 127.11, 'description': 'This is Product12'}
+2024-01-15 17:09:27,679 INFO Product13 added to inventory
+2024-01-15 17:09:27,679 ERROR Product name and/or price is missing from {'name': 'Product14', 'description': 'This is Product14'}
+2024-01-15 17:09:27,679 INFO Product15 added to inventory
+2024-01-15 17:09:27,679 INFO Product16 added to inventory
+2024-01-15 17:09:27,679 ERROR Product name and/or price is missing from {'price': 40.95, 'description': 'This is Product17'}
+2024-01-15 17:09:27,679 INFO Product18 added to inventory
+2024-01-15 17:09:27,680 INFO Product19 added to inventory
+2024-01-15 17:09:27,680 INFO Product20 added to inventory
+2024-01-15 17:09:27,680 ERROR Error is: write() argument must be str, not None
+2024-01-15 17:09:27,681 ERROR Product name and/or price is missing from {'name': 'Product1', 'description': 'This is product 1'}
+2024-01-15 17:09:27,681 INFO Product2 added to inventory
+2024-01-15 17:09:27,681 ERROR Product name and/or price is missing from {'price': 25.99, 'description': 'This is product 3'}
+2024-01-15 17:09:27,681 INFO Product4 added to inventory
+2024-01-15 17:09:27,681 INFO Product10 added to inventory
+2024-01-15 17:09:27,681 INFO Product11 added to inventory
+2024-01-15 17:09:27,681 ERROR Product name and/or price is missing from {'price': 127.11, 'description': 'This is Product12'}
+2024-01-15 17:09:27,681 INFO Product13 added to inventory
+2024-01-15 17:09:27,681 ERROR Product name and/or price is missing from {'name': 'Product14', 'description': 'This is Product14'}
+2024-01-15 17:09:27,681 INFO Product15 added to inventory
+2024-01-15 17:09:27,681 INFO Product16 added to inventory
+2024-01-15 17:09:27,681 ERROR Product name and/or price is missing from {'price': 40.95, 'description': 'This is Product17'}
+2024-01-15 17:09:27,681 INFO Product18 added to inventory
+2024-01-15 17:09:27,681 INFO Product19 added to inventory
+2024-01-15 17:09:27,681 INFO Product20 added to inventory
+2024-01-15 17:09:27,682 ERROR Error is: write() argument must be str, not None
+2024-01-15 17:10:15,137 ERROR Product name and/or price is missing from {'name': 'Product1', 'description': 'This is product 1'}
+2024-01-15 17:10:15,137 INFO Product2 added to inventory
+2024-01-15 17:10:15,137 ERROR Product name and/or price is missing from {'price': 25.99, 'description': 'This is product 3'}
+2024-01-15 17:10:15,137 INFO Product4 added to inventory
+2024-01-15 17:10:15,137 INFO Product10 added to inventory
+2024-01-15 17:10:15,137 INFO Product11 added to inventory
+2024-01-15 17:10:15,137 ERROR Product name and/or price is missing from {'price': 127.11, 'description': 'This is Product12'}
+2024-01-15 17:10:15,137 INFO Product13 added to inventory
+2024-01-15 17:10:15,137 ERROR Product name and/or price is missing from {'name': 'Product14', 'description': 'This is Product14'}
+2024-01-15 17:10:15,137 INFO Product15 added to inventory
+2024-01-15 17:10:15,137 INFO Product16 added to inventory
+2024-01-15 17:10:15,137 ERROR Product name and/or price is missing from {'price': 40.95, 'description': 'This is Product17'}
+2024-01-15 17:10:15,137 INFO Product18 added to inventory
+2024-01-15 17:10:15,137 INFO Product19 added to inventory
+2024-01-15 17:10:15,137 INFO Product20 added to inventory
+2024-01-15 17:10:15,138 INFO Successfully wrote data to <_io.TextIOWrapper name='./inventory.json' mode='w' encoding='cp1252'>
+2024-01-15 17:10:15,138 ERROR Product name and/or price is missing from {'name': 'Product1', 'description': 'This is product 1'}
+2024-01-15 17:10:15,138 INFO Product2 added to inventory
+2024-01-15 17:10:15,138 ERROR Product name and/or price is missing from {'price': 25.99, 'description': 'This is product 3'}
+2024-01-15 17:10:15,138 INFO Product4 added to inventory
+2024-01-15 17:10:15,138 INFO Product10 added to inventory
+2024-01-15 17:10:15,139 INFO Product11 added to inventory
+2024-01-15 17:10:15,139 ERROR Product name and/or price is missing from {'price': 127.11, 'description': 'This is Product12'}
+2024-01-15 17:10:15,139 INFO Product13 added to inventory
+2024-01-15 17:10:15,139 ERROR Product name and/or price is missing from {'name': 'Product14', 'description': 'This is Product14'}
+2024-01-15 17:10:15,139 INFO Product15 added to inventory
+2024-01-15 17:10:15,139 INFO Product16 added to inventory
+2024-01-15 17:10:15,139 ERROR Product name and/or price is missing from {'price': 40.95, 'description': 'This is Product17'}
+2024-01-15 17:10:15,139 INFO Product18 added to inventory
+2024-01-15 17:10:15,139 INFO Product19 added to inventory
+2024-01-15 17:10:15,139 INFO Product20 added to inventory
+2024-01-15 17:10:15,139 INFO Successfully wrote data to <_io.TextIOWrapper name='./inventory.json' mode='w' encoding='cp1252'>

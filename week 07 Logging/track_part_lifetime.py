@@ -156,6 +156,6 @@ logging.basicConfig(
 )
 
 
-part_ID = set_part_id()
-install_date = set_install_date(part_ID)
-get_max_part_life(part_install_date=install_date, part_id=part_ID)
+part_id = set_part_id()
+install_date = set_install_date(part_id)
+get_max_part_life(part_install_date=install_date, part_id=part_id)
