@@ -9,13 +9,15 @@ def create_product_objects(data: list[tuple]) -> list[Product]:
     Create a list of Product objects based on the provided data.
 
     Args:
-    - data (list[tuple]): A list of tuples containing product information (name, price, quantity).
+    - data (list[tuple]): A list of tuples containing product information (
+    name, price, quantity).
 
     Returns:
     - list[Product]: A list of Product objects.
 
     Note:
-    - Each tuple in the data should have three elements: name (str), price (float), quantity (int).
+    - Each tuple in the data should have three elements: name (str), price (
+    float), quantity (int).
     """
     products_list = []
     for product in product_data:
@@ -37,13 +39,12 @@ def report_sales(product_list: list[Product]) -> str:
     Note:
     - Sales are randomly generated for every second product in the list.
     """
-    sales = Sales()  # create Sales object
+    sales = Sales()  # create a Sales object
 
     # Iterate through product_list and generate random sales data
-    for index, product_elem in enumerate(product_list):
-        if index % 2 == 0:
-            rand_num = random.randint(1, 10)
-            sales.add_sale(product_elem, rand_num)
+    for product_elem in product_list:
+        rand_num = random.randint(1, 10)
+        sales.add_sale(product_elem, rand_num)
     return sales.generate_report()
 
 
@@ -59,9 +60,6 @@ product_data: list[tuple] = [
     ("widgetI", 1.99, 300),
     ("widgetJ", 13.99, 50),
 ]
-
-# Generate random integers for with sales data
-x = random.randint(1, 10)
 
 
 if __name__ == "__main__":
