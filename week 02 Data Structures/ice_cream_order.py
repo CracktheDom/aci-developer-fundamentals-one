@@ -22,7 +22,8 @@ each scoop. If a customer enters an invalid option, notify them of the error
 and prompt them again."""
 
 
-def get_container_type():
+def get_container_type(order_item_dict: dict) -> dict:
+    global item_num_key
     isContainerChosen = False
     while not isContainerChosen:
         # prompt for input for container type, while loop until valid input
@@ -33,82 +34,133 @@ def get_container_type():
         # validate container input
         if container_response in CONTAINER_CHOICE:
             # add container response to order variable, possibly dict
-            order_list.append({"container_type": "container_response"})
+            order_item_dict["container_type"] = container_response
             isContainerChosen = True
         else:  # invalid input => print error msg & restart loop
             print(
                 f"Try again.\nChoose between {CONTAINER_CHOICE[0]} or {CONTAINER_CHOICE[1]}: "
             )
+    return order_item_dict
 
 
-def get_num_scoops():
+def get_num_scoops(order_item_dict: dict) -> dict:
+    global item_num_key
     isScoopsSelected = False
     while not isScoopsSelected:
         # prompt for input of # of scoops
         num_scoops_response = input(
-            f"How many scoops would you like?\nYou can choose up to {len(NUMBER_OF_SCOOPS)} scoops? "
+            f"\nHow many scoops would you like?\nYou can choose up to {len(NUMBER_OF_SCOOPS)} scoops? "
         )
         # validate scoop response
         if num_scoops_response.isnumeric():
+            num_scoops_response = int(num_scoops_response)
             if num_scoops_response <= len(NUMBER_OF_SCOOPS):
-                num_scoops_response = int(num_scoops_response)
-
                 # add scoop response to order variable
-                order_list.append({"num_of_scoops": num_scoops_response})
+                order_item_dict["num_of_scoops"] = num_scoops_response
 
                 isScoopsSelected = True
         else:  # invalid input => print error msg & restart loop
             print(
-                f"Try again.\nChoose between {NUMBER_OF_SCOOPS[0]}, {NUMBER_OF_SCOOPS[1]} or {NUMBER_OF_SCOOPS[2]} scoops(s): "
+                f"\nTry again.\nChoose between {NUMBER_OF_SCOOPS[0]}, {NUMBER_OF_SCOOPS[1]} or {NUMBER_OF_SCOOPS[2]} scoops(s): "
             )
-    return num_scoops_response
+    return order_item_dict
 
 
-def get_flavors(num_of_scoops: int):
+def get_flavors(order_item_dict: dict):
+    global item_num_key
     ordinal_map = {"1": "first", "2": "second", "3": "third"}
     isFlavorSelected = False  # Initialize loop variable
+    flavor_selections = []
+
     while not isFlavorSelected:
         # Initialize list of possible multiple flavors
-        flavor_selections = []
+
         print(
-            f"Flavors: vanilla, strawberry, chocolate, cherry, mint, peach, grape".title()
+            f"\nAvailable flavors: vanilla, strawberry, chocolate, cherry, mint, peach, grape".title()
         )
 
         # prompt for input of # of flavor(s)
         flavor_response = input(
-            f"Which flavor would you like for your {ordinal_map[{len(flavor_selections) + 1}]} scoop? "
+            f"\nWhich flavor would you like for your {ordinal_map[str(len(flavor_selections) + 1)]} scoop? "
         ).lower()
 
         # validate flavor(s) response
         if flavor_response in FLAVORS:
             # add flavor_response to list of flavor selections
+            print(f"You selected {flavor_response}")
             flavor_selections.append(flavor_response)
 
             # check if all flavors have been selected
-            if len(flavor_selections) == num_of_scoops:
+            if len(flavor_selections) == order_item_dict['num_of_scoops']:
                 isFlavorSelected = True
 
-                # add flavor selection to order list
-                order_list.append({"flavor": flavor_selections})
+                # add flavor selection to item_num_key dict
+                order_item_dict["flavor"] = flavor_selections
 
         else:  # invalid input => print error msg & restart loop
             print(f"Try again.\nChoose between {FLAVORS}")
-
-    # prompt if order is complete
-    # if yes, change flag, exit order while loop, display details of order
-    # if no, restart order while loop
+    return order_item_dict
 
 
-def make_order():
+def make_ice_cream_order(order_item_dict: dict, order_list: list):
+    global item_num
+    global item_num_key
+    isOrderComplete = False
+
     # start the order probably use while loop
     while not isOrderComplete:
-        get_container_type()
-        scoops = get_num_scoops()
-        get_flavors(scoops)
+        order_container = get_container_type(order_item_dict)
+        order_scoops = get_num_scoops(order_container)
+        item_complete = get_flavors(order_scoops)
+        order_response = ""
+
+        while order_response not in ("y", "n"):
+            # prompt if order is complete
+            order_response = input(
+                "\nWould like to add something to your order? (Y)es or (N)o: "
+            ).lower()
+
+            # if order is complete, change flag, exit order while loop, display details of order
+            if order_response == "n":
+                isOrderComplete = True
+
+                # add order to order list
+                order_list.append(item_complete)
+
+
+            # if no, restart order while loop
+            elif order_response == "y":
+                print("\nLet's get started on your next item!\n")
+                item_num += 1  # increment item number
+
+                # create new value for new item attributes
+                item_num_key = f"item_{item_num}"
+
+                # add order to order list
+                order_list.append(item_complete)
+
+                # add a new item dict to order list
+                order_list.append({item_num_key: {}})
+
+
+            else:
+                print("Try again\n")
+    return order_list
+
+
+def print_order(order_list: list[dict]):
+    global item_num_key
+    for order in order_list:
+        print(
+              f"You ordered a {order[item_num_key]["container_type"]} with ",
+              end=""
+        )
+        for flavor in order[item_num_key]["flavor"]:
+            print(f"a scoop of {flavor.title()}", end=", ")
 
 
 # constant variables
-CONTAINER_CHOICE: tuple[str, str] = (cone, cup)
+CONTAINER_CHOICE: tuple[str, str] = ("cone", "cup")
 NUMBER_OF_SCOOPS: tuple[int, int, int] = (1, 2, 3)
 FLAVORS: tuple[str, str, str, str, str, str, str] = (
     "vanilla",
@@ -121,8 +173,12 @@ FLAVORS: tuple[str, str, str, str, str, str, str] = (
 )
 
 # Initialize variables
-order_list: list[dict[str:str]] = list()
-isOrderComplete = False
-isValidInput = False
+item_num = 1
+item_num_key = f"item_{item_num}"
+order: dict[str:dict] = {item_num_key: dict()}
+order_list: list[dict[str:str, str:int, str : list[str | str | str]]] = []
+
 
 print("Greetings, how can I help you today?")
+make_ice_cream_order(order[item_num_key], order_list)
+# print_order(order_list)
