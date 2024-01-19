@@ -66,17 +66,20 @@ class Sales:
 
         :return: A formatted string containing the sales report.
         """
+
+        # Initialize variables
         total_revenue = 0
         unique_products = set()
         total_products_sold = {}
 
+        # Iterate thru list of sales data
         for sale in self.sales_data:
             # Calculate total revenue
             total_revenue += float(
                 sale["product"].__str__().split("$")[1].strip(")")
             ) * int(sale["quantity"])
 
-            # Update total products sold
+            # Tabulate total products sold
             if sale["product"] not in total_products_sold:
                 total_products_sold[sale["product"]] = sale["quantity"]
             else:
@@ -85,7 +88,10 @@ class Sales:
             # Track unique products
             unique_products.update([sale["product"]])
 
-        final_report = ""
+        final_report = ""  # Initialize variable for final report
+
+        # Iterate thru unique product list, tabulate total revenue and total
+        # number sold for each product
         for unique_product in unique_products:
             # Generate report for each unique product
             final_report += f'# of {unique_product} units sold: {total_products_sold[unique_product]}, resulting in revenue of ${total_products_sold[unique_product] * float(unique_product.__str__().split("$")[1].strip(")")):,.2f}\n'
@@ -119,7 +125,10 @@ def test_classes():
     # Print the generated sales report
     print(sales.generate_report())
 
+    # create iterator for Sales object
     sales_iter = sales.__iter__()
+
+    # Iterate to next sales data item and display number of products sold
     print(next(sales_iter))
     print(next(sales_iter))
     print(next(sales_iter))
