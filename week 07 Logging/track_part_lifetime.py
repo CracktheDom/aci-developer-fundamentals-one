@@ -24,7 +24,8 @@ def set_part_id() -> str:
 
     Note:
     - The function prompts the user until a valid part ID is entered.
-    - A valid part ID should consist of 2 alphabetical characters followed by 2 numeric characters.
+    - A valid part ID should consist of 2 alphabetical characters followed by 2
+      numeric characters.
     """
     logging.info("Entered the set_part_id function")
     while True:
@@ -48,15 +49,19 @@ def set_install_date(part_id: str) -> datetime:
     Set the installation date for a specific part ID.
 
     Args:
-    - part_id (str): The identifier of the part for which the installation date is being set.
+    - part_id (str): The identifier of the part for which the installation date
+      is being set.
 
     Returns:
     - datetime: The installation date as a datetime object.
 
     Note:
-    - The function prompts the user to input the installation date in the format MM-DD-YYYY.
-    - If the input is invalid, it provides an error message and asks for a correct format.
-    - The function logs the entered date or any errors encountered during the process.
+    - The function prompts the user to input the installation date in the
+      format MM-DD-YYYY.
+    - If the input is invalid, it provides an error message and asks for a
+      correct format.
+    - The function logs the entered date or any errors encountered during the
+      process.
     """
     logging.info("Entered the set_install_date function")
     response_datetime: str = ""
@@ -80,7 +85,8 @@ def set_install_date(part_id: str) -> datetime:
 
 def get_max_part_life(part_install_date: datetime.datetime, part_id: str):
     """
-    Calculate the remaining service life of a part, log relevant information, and provide recommendations for replacement.
+    Calculate the remaining service life of a part, log relevant information,
+    and provide recommendations for replacement.
 
     Args:
     - part_install_date (datetime.datetime): The installation date of the part.
@@ -97,7 +103,8 @@ def get_max_part_life(part_install_date: datetime.datetime, part_id: str):
     Note:
     - The function prompts the user for the maximum life of the part, in hours.
     - It calculates the number of hours the part has been in service.
-    - It logs information about the part's service time and provides recommendations for replacement.
+    - It logs information about the part's service time and provides
+      recommendations for replacement.
     """
 
     logging.info("Entered the get_max_part_life function")
