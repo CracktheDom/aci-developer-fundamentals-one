@@ -13,10 +13,16 @@ def process_data() -> list[int]:
     - If the input is not comma-separated, the user is prompted to try again
     until a valid input is provided.
     """
+
+    # Log the start function activity
     logging.info("The function has started")
+
+    # Prompt user for imput
     response: str = input(
         "Enter a list of numbers separated by commas, i.e. 5, 8, 6, 92: "
     )
+
+    # Check for valid input, if invalid ask user again for input
     if "," not in response:
         input_is_valid = False
         logging.error("Not comma-separated values entered")
@@ -28,7 +34,7 @@ def process_data() -> list[int]:
                 input_is_valid = False
                 logging.error("Still no comma-separated values entered")
     else:
-        input_is_valid = True  # valid input initially was entered
+        input_is_valid = True  # valid input was initially entered
 
         """
         Strip blank space from string & split characters between commas into
