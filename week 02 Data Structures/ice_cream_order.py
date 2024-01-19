@@ -23,6 +23,18 @@ and prompt them again."""
 
 
 def get_container_type(order_item_dict: dict) -> dict:
+    """
+    Prompt the user for the type of container and validate the input.
+
+    Args:
+    - order_item_dict (dict): The dictionary representing the current item in the order.
+
+    Returns:
+    - dict: Updated order_item_dict with the chosen container type.
+
+    Note:
+    - The function uses global variables and logs information about the process.
+    """
     global item_num_key
     isContainerChosen = False
     while not isContainerChosen:
@@ -44,6 +56,18 @@ def get_container_type(order_item_dict: dict) -> dict:
 
 
 def get_num_scoops(order_item_dict: dict) -> dict:
+    """
+    Prompt the user for the number of scoops and validate the input.
+
+    Args:
+    - order_item_dict (dict): The dictionary representing the current item in the order.
+
+    Returns:
+    - dict: Updated order_item_dict with the chosen number of scoops.
+
+    Note:
+    - The function uses global variables and logs information about the process.
+    """
     global item_num_key
     isScoopsSelected = False
     while not isScoopsSelected:
@@ -66,7 +90,19 @@ def get_num_scoops(order_item_dict: dict) -> dict:
     return order_item_dict
 
 
-def get_flavors(order_item_dict: dict):
+def get_flavors(order_item_dict: dict) -> dict:
+    """
+    Prompt the user for flavors and validate the input.
+
+    Args:
+    - order_item_dict (dict): The dictionary representing the current item in the order.
+
+    Returns:
+    - dict: Updated order_item_dict with the chosen flavors.
+
+    Note:
+    - The function uses global variables and logs information about the process.
+    """
     global item_num_key
     ordinal_map = {"1": "first", "2": "second", "3": "third"}
     isFlavorSelected = False  # Initialize loop variable
@@ -102,7 +138,20 @@ def get_flavors(order_item_dict: dict):
     return order_item_dict
 
 
-def make_ice_cream_order(order_item_dict: dict, order_list: list):
+def make_ice_cream_order(order_item_dict: dict, order_list: list) -> list[dict]:
+    """
+    Create an ice cream order by calling the functions to get container type, number of scoops, and flavors.
+
+    Args:
+    - order_item_dict (dict): The dictionary representing the current item in the order.
+    - order_list (list): The list containing the entire order.
+
+    Returns:
+    - list: Updated order_list with the current order.
+
+    Note:
+    - The function uses global variables and logs information about the process.
+    """
     global item_num
     global item_num_key
     isOrderComplete = False
@@ -136,10 +185,10 @@ def make_ice_cream_order(order_item_dict: dict, order_list: list):
                 # create new value for new item attributes
                 item_num_key = f"item_{item_num}"
 
-                # add order to order list
+                # add completed order to order list
                 order_list.append(item_complete)
 
-                # add a new item dict to order list
+                # add a new order (dict) to order list
                 order_list.append({item_num_key: {}})
 
 
@@ -159,7 +208,7 @@ def print_order(order_list: list[dict]):
             print(f"a scoop of {flavor.title()}", end=", ")
 
 
-# constant variables
+# Constant variables
 CONTAINER_CHOICE: tuple[str, str] = ("cone", "cup")
 NUMBER_OF_SCOOPS: tuple[int, int, int] = (1, 2, 3)
 FLAVORS: tuple[str, str, str, str, str, str, str] = (
