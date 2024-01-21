@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import logging
+
 """For this task, imagine that you are the proud owner of an ice cream shop. As
 an entrepreneur, you know that increased efficiency can be the thing that sets
 you apart from other stores. With all that you now know about iterables, data
@@ -36,12 +38,14 @@ def get_container_type(order_item_dict: dict) -> dict:
     Note:
     - The function uses global variables and logs information about the process.
     """
+    logging.info(f'Entering get_container_type()')
     isContainerChosen: bool = False  # Initialize loop variable/flag
     while not isContainerChosen:
         # prompt for input for container type, while loop until valid input
         container_response = input(
             f"What type of container would you like, {CONTAINER_CHOICE[0]} or {CONTAINER_CHOICE[1]}? "
         ).lower()
+        logging.info(f'Contents of container_response: {container_response}')
 
         # validate container input
         if container_response in CONTAINER_CHOICE:
@@ -50,10 +54,13 @@ def get_container_type(order_item_dict: dict) -> dict:
 
             print(f'You selected a {order_item_dict["container_type"]}.')
             isContainerChosen = True  # switch loop variable to exit loop
+            logging.info(f'Contents of order_item_dict["container_type"]: {order_item_dict["container_type"]}')
         else:  # invalid input => print error msg & restart loop
             print(
                 f"Try again.\nChoose between {CONTAINER_CHOICE[0]} or {CONTAINER_CHOICE[1]}: "
             )
+    # logging contents of order_item_dict that is being returned
+    logging.info(f'get_container_type() returning order_item_dict: {order_item_dict}')
     return order_item_dict
 
 
@@ -71,6 +78,7 @@ def get_num_scoops(order_item_dict: dict) -> dict:
     Note:
     - The function uses global variables and logs information about the process.
     """
+    logging.info(f'Entering get_num_scoops()')
     isScoopsSelected: bool = False  # Initialize loop flag/variable
     while not isScoopsSelected:
         # prompt for input of # of scoops
@@ -96,6 +104,11 @@ def get_num_scoops(order_item_dict: dict) -> dict:
                 print(f"\nTry again.\nChoose between {NUMBER_OF_SCOOPS[0]}, {NUMBER_OF_SCOOPS[1]} or {NUMBER_OF_SCOOPS[2]} scoops(s): ")
         else:  # input not numeric => print error msg & restart loop
             print(f"\nTry again.\nChoose between {NUMBER_OF_SCOOPS[0]}, {NUMBER_OF_SCOOPS[1]} or {NUMBER_OF_SCOOPS[2]} scoops(s): ")
+
+    # logging contents of order_item_dict that is being returned
+    logging.info(
+        f"get_num_scoops() returning order_item_dict: {order_item_dict}"
+    )
     return order_item_dict
 
 
@@ -113,6 +126,7 @@ def get_flavors(order_item_dict: dict) -> dict:
     Note:
     - The function uses global variables and logs information about the process.
     """
+    logging.info(f'Entering get_flavors()')
 
     # dict to provide correct string for first, second or third scoop
     ordinal_map: dict[str: str] = {
@@ -149,9 +163,15 @@ def get_flavors(order_item_dict: dict) -> dict:
                 # add flavor selection to dict
                 order_item_dict["flavors"] = flavor_selections
 
+                logging.info(f"Flavors added to order_item_dict: {order_item_dict["flavors"]}")
 
         else:  # invalid input => print error msg & restart loop
             print(f"Try again.\nChoose between {FLAVORS}")
+
+    # logging contents of order_item_dict that is being returned
+    logging.info(
+        f"get_flavors() returning order_item_dict: {order_item_dict} "
+    )
     return order_item_dict
 
 
@@ -171,6 +191,7 @@ def make_ice_cream_order(order_item_dict: dict, order_list: list) -> list[dict]:
     Note:
     - The function logs information about the process.
     """
+    logging.info(f"Entered make_ice_cream_order()")
     isOrderComplete: bool = False  # Initialize loop variable
 
     # start the order probably use while loop
@@ -199,6 +220,8 @@ def make_ice_cream_order(order_item_dict: dict, order_list: list) -> list[dict]:
                 # add completed item to order list
                 order_list.append(item_complete)
 
+                logging.info(f"Contents of order_item_dict: {item_complete}")
+                logging.info(f"Contents of order_list: {order_list}")
 
             # add more items to order, restart order while loop
             elif order_complete_response == "y":
@@ -214,9 +237,14 @@ def make_ice_cream_order(order_item_dict: dict, order_list: list) -> list[dict]:
                     "flavors": [],
                 }
 
+                logging.info(f"Contents of order_item_dict: {item_complete}")
+                logging.info(f"Contents of order_list: {order_list}")
 
             else:  # invalid input
                 print("Try again\n")
+
+    # logging contents of order_list that is being returned
+    logging.info(f'make_ice_cream_order() returning order_list: {order_list} ')
     return order_list
 
 
@@ -250,6 +278,15 @@ item_dict: dict[str: str | int | list] = {
     "num_of_scoops": 0,
     "flavors": [],
 }
+
+# set up logging configuration
+logging.basicConfig(
+    level=logging.DEBUG,
+    filemode='a',
+    filename='ice_cream.log',
+    format='{asctime} {levelname} {message}',
+    style='{'
+)
 
 print("Greetings, how can I help you today?")
 make_ice_cream_order(item_dict, order_list)
