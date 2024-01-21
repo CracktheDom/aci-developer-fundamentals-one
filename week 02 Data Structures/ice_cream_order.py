@@ -86,7 +86,7 @@ def get_num_scoops(order_item_dict: dict) -> dict:
             f"\nHow many scoops would you like?\nYou can choose up to {len(NUMBER_OF_SCOOPS)} scoops? "
         )
         # validate scoop response
-        if num_scoops_response.isnumeric():
+        try:
 
             # convert response to int datatype
             num_scoops_response = int(num_scoops_response)
@@ -101,9 +101,17 @@ def get_num_scoops(order_item_dict: dict) -> dict:
                 )
                 isScoopsSelected = True  # switch loop variable to exit loop
             else:  # invalid number of scoops
-                print(f"\nTry again.\nChoose between {NUMBER_OF_SCOOPS[0]}, {NUMBER_OF_SCOOPS[1]} or {NUMBER_OF_SCOOPS[2]} scoops(s): ")
-        else:  # input not numeric => print error msg & restart loop
-            print(f"\nTry again.\nChoose between {NUMBER_OF_SCOOPS[0]}, {NUMBER_OF_SCOOPS[1]} or {NUMBER_OF_SCOOPS[2]} scoops(s): ")
+                print(
+                    f"\nTry again.\nChoose between {NUMBER_OF_SCOOPS[0]}, "
+                    f"{NUMBER_OF_SCOOPS[1]}, or {NUMBER_OF_SCOOPS[2]} scoops: "
+                )
+
+        # input not numeric => print error msg & restart loop
+        except ValueError:
+            print(
+                f"\nTry again.\nChoose between {NUMBER_OF_SCOOPS[0]}, "
+                f"{NUMBER_OF_SCOOPS[1]} or {NUMBER_OF_SCOOPS[2]} scoops(s): "
+            )
 
     # logging contents of order_item_dict that is being returned
     logging.info(
