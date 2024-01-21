@@ -36,7 +36,6 @@ def get_container_type(order_item_dict: dict) -> dict:
     Note:
     - The function uses global variables and logs information about the process.
     """
-    global item_num_key
     isContainerChosen: bool = False  # Initialize loop variable/flag
     while not isContainerChosen:
         # prompt for input for container type, while loop until valid input
@@ -72,7 +71,6 @@ def get_num_scoops(order_item_dict: dict) -> dict:
     Note:
     - The function uses global variables and logs information about the process.
     """
-    global item_num_key
     isScoopsSelected: bool = False  # Initialize loop flag/variable
     while not isScoopsSelected:
         # prompt for input of # of scoops
@@ -115,7 +113,6 @@ def get_flavors(order_item_dict: dict) -> dict:
     Note:
     - The function uses global variables and logs information about the process.
     """
-    global item_num_key
 
     # dict to provide correct string for first, second or third scoop
     ordinal_map: dict[str: str] = {
@@ -142,11 +139,11 @@ def get_flavors(order_item_dict: dict) -> dict:
         # validate flavor(s) response
         if flavor_response in FLAVORS:
             # add flavor_response to list of flavor selections
-            print(f"You selected {flavor_response}")
+            print(f"You selected {flavor_response.title()} as your {ordinal_map[str(len(flavor_selections) + 1)]} scoop.")
             flavor_selections.append(flavor_response)
 
             # check if all flavors have been selected
-            if len(flavor_selections) == order_item_dict['num_of_scoops']:
+            if len(flavor_selections) == order_item_dict["num_of_scoops"]:
                 isFlavorSelected = True
 
                 # add flavor selection to dict
@@ -172,47 +169,50 @@ def make_ice_cream_order(order_item_dict: dict, order_list: list) -> list[dict]:
     - list: Updated order_list with the current order.
 
     Note:
-    - The function uses global variables and logs information about the process.
+    - The function logs information about the process.
     """
-    global item_num
-    global item_num_key
-    isOrderComplete = False
     isOrderComplete: bool = False  # Initialize loop variable
 
     # start the order probably use while loop
     while not isOrderComplete:
-        order_container = get_container_type(order_item_dict)
-        order_scoops = get_num_scoops(order_container)
-        item_complete = get_flavors(order_scoops)
-        order_response = ""
+        item_complete: dict = get_flavors(  # get flavors
 
-        while order_response not in ("y", "n"):
+                                # gets number of scoops
+                                get_num_scoops(
+
+                                    # gets container type
+                                    get_container_type(order_item_dict)
+                                )
+                            )
+        order_complete_response = ""  # Initialize loop variable
+
+        while order_complete_response not in ("y", "n"):
             # prompt if order is complete
-            order_response = input(
+            order_complete_response = input(
                 "\nWould like to add something to your order? (Y)es or (N)o: "
             ).lower()
 
             # if order is complete, change flag, exit order while loop, display details of order
-            if order_response == "n":
-                isOrderComplete = True
+            if order_complete_response == "n":
+                isOrderComplete = True  # switch loop variable to exit loop
 
                 # add completed item to order list
                 order_list.append(item_complete)
 
 
-            elif order_response == "y":
             # add more items to order, restart order while loop
+            elif order_complete_response == "y":
                 print("\nLet's get started on your next item!\n")
-                item_num += 1  # increment item number
-
-                # create new value for new item attributes
-                item_num_key = f"item_{item_num}"
 
                 # add completed order to order list
                 order_list.append(item_complete)
 
-                # add a new order (dict) to order list
-                order_list.append({item_num_key: {}})
+                # reinitialize order_item_dict to accept attributes for new item
+                item_dict: dict[str: str | int | list] = {
+                    "container_type": "",
+                    "num_of_scoops": 0,
+                    "flavors": [],
+                }
 
 
             else:  # invalid input
@@ -221,20 +221,19 @@ def make_ice_cream_order(order_item_dict: dict, order_list: list) -> list[dict]:
 
 
 def print_order(order_list: list[dict]):
-    global item_num_key
     for order in order_list:
         print(
-              f"You ordered a {order[item_num_key]["container_type"]} with ",
+              f"You ordered a {order["container_type"]} with ",
               end=""
         )
-        for flavor in order[item_num_key]["flavor"]:
+        for flavor in order["flavor"]:
             print(f"a scoop of {flavor.title()}", end=", ")
 
 
 # Constant variables
-CONTAINER_CHOICE: tuple[str, str] = ("cone", "cup")
-NUMBER_OF_SCOOPS: tuple[int, int, int] = (1, 2, 3)
-FLAVORS: tuple[str, str, str, str, str, str, str] = (
+CONTAINER_CHOICE: tuple[str] = ("cone", "cup")
+NUMBER_OF_SCOOPS: tuple[int] = (1, 2, 3)
+FLAVORS: tuple[str] = (
     "vanilla",
     "strawberry",
     "chocolate",
@@ -245,12 +244,13 @@ FLAVORS: tuple[str, str, str, str, str, str, str] = (
 )
 
 # Initialize variables
-item_num = 1
-item_num_key = f"item_{item_num}"
-order: dict[str:dict] = {item_num_key: dict()}
-order_list: list[dict[str:str, str:int, str : list[str | str | str]]] = []
-
+order_list: list = list()
+item_dict: dict[str: str | int | list] = {
+    "container_type": "",
+    "num_of_scoops": 0,
+    "flavors": [],
+}
 
 print("Greetings, how can I help you today?")
-make_ice_cream_order(order[item_num_key], order_list)
+make_ice_cream_order(item_dict, order_list)
 # print_order(order_list)
