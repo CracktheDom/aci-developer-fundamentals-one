@@ -97,7 +97,8 @@ def get_num_scoops(order_item_dict: dict) -> dict:
                 order_item_dict["num_of_scoops"] = num_scoops_response
 
                 print(
-                    f'You selected {order_item_dict["num_of_scoops"]} scoop{'s' if order_item_dict["num_of_scoops"] > 1 else ""}.'
+                    f'You selected {order_item_dict["num_of_scoops"]}'
+                    f'scoop{'s' if order_item_dict["num_of_scoops"] > 1 else ""}.'
                 )
                 isScoopsSelected = True  # switch loop variable to exit loop
             else:  # invalid number of scoops
@@ -137,16 +138,21 @@ def get_flavors(order_item_dict: dict) -> dict:
     logging.info(f'Entering get_flavors()')
 
     # dict to provide correct string for first, second or third scoop
-    ordinal_map: dict[str: str] = {
-        "1": "first",
-        "2": "second",
-        "3": "third"
+    ordinal_map: dict[int: str] = {
+        1: "first",
+        2: "second",
+        3: "third"
     }
 
     isFlavorSelected: bool = False  # Initialize loop variable
 
     # Initialize list that may contain more than one flavor
     flavor_selections: list = list()
+
+    print(
+        f"Next, select your {order_item_dict[num_of_scoops]} "
+        f"flavor{'s' if order_item_dict[num_of_scoops] > 1 else ""}"
+    )
 
     while not isFlavorSelected:
         print(
@@ -155,13 +161,17 @@ def get_flavors(order_item_dict: dict) -> dict:
 
         # prompt for input of # of flavor(s)
         flavor_response = input(
-            f"\nWhich flavor would you like for your {ordinal_map[str(len(flavor_selections) + 1)]} scoop? "
+            f"\nWhich flavor would you like for your "
+            f"{ordinal_map[len(flavor_selections) + 1]} scoop? "
         ).lower()
 
         # validate flavor(s) response
         if flavor_response in FLAVORS:
             # add flavor_response to list of flavor selections
-            print(f"You selected {flavor_response.title()} as your {ordinal_map[str(len(flavor_selections) + 1)]} scoop.")
+            print(
+                  f"You selected {flavor_response.title()} as your "
+                  f"{ordinal_map[len(flavor_selections) + 1]} scoop."
+            )
             flavor_selections.append(flavor_response)
 
             # check if all flavors have been selected
