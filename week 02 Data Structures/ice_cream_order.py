@@ -43,7 +43,8 @@ def get_container_type(order_item_dict: dict) -> dict:
     while not isContainerChosen:
         # prompt for input for container type, while loop until valid input
         container_response = input(
-            f"What type of container would you like, {CONTAINER_CHOICE[0]} or {CONTAINER_CHOICE[1]}? "
+            f"What type of container would you like, {CONTAINER_CHOICE[0]} or "
+            f"{CONTAINER_CHOICE[1]}? "
         ).lower()
         logging.info(f'Contents of container_response: {container_response}')
 
@@ -54,13 +55,16 @@ def get_container_type(order_item_dict: dict) -> dict:
 
             print(f'You selected a {order_item_dict["container_type"]}.')
             isContainerChosen = True  # switch loop variable to exit loop
-            logging.info(f'Contents of order_item_dict["container_type"]: {order_item_dict["container_type"]}')
+            logging.info('Contents of order_item_dict["container_type"]: '
+                         f'{order_item_dict["container_type"]}')
         else:  # invalid input => print error msg & restart loop
             print(
-                f"Try again.\nChoose between {CONTAINER_CHOICE[0]} or {CONTAINER_CHOICE[1]}: "
+                f"\nTry again.\nChoose between {CONTAINER_CHOICE[0]} or "
+                f"{CONTAINER_CHOICE[1]}: "
             )
     # logging contents of order_item_dict that is being returned
-    logging.info(f'get_container_type() returning order_item_dict: {order_item_dict}')
+    logging.info('get_container_type() returning order_item_dict: '
+                 f'{order_item_dict}')
     return order_item_dict
 
 
@@ -83,7 +87,8 @@ def get_num_scoops(order_item_dict: dict) -> dict:
     while not isScoopsSelected:
         # prompt for input of # of scoops
         num_scoops_response = input(
-            f"\nHow many scoops would you like?\nYou can choose up to {len(NUMBER_OF_SCOOPS)} scoops? "
+            "\nHow many scoops would you like?"
+            f"\nYou can choose up to {len(NUMBER_OF_SCOOPS)} scoops? "
         )
         # validate scoop response
         try:
@@ -97,7 +102,7 @@ def get_num_scoops(order_item_dict: dict) -> dict:
                 order_item_dict["num_of_scoops"] = num_scoops_response
 
                 print(
-                    f'You selected {order_item_dict["num_of_scoops"]}'
+                    f'You selected {order_item_dict["num_of_scoops"]} '
                     f'scoop{'s' if order_item_dict["num_of_scoops"] > 1 else ""}.'
                 )
                 isScoopsSelected = True  # switch loop variable to exit loop
@@ -156,7 +161,8 @@ def get_flavors(order_item_dict: dict) -> dict:
 
     while not isFlavorSelected:
         print(
-            f"\nAvailable flavors: vanilla, strawberry, chocolate, cherry, mint, peach, grape".title()
+            "\nAvailable flavors: vanilla, strawberry, "
+            "chocolate, cherry, mint, peach, grape".title()
         )
 
         # prompt for input of # of flavor(s)
@@ -181,7 +187,10 @@ def get_flavors(order_item_dict: dict) -> dict:
                 # add flavor selection to dict
                 order_item_dict["flavors"] = flavor_selections
 
-                logging.info(f"Flavors added to order_item_dict: {order_item_dict["flavors"]}")
+                logging.info(
+                    "Flavors added to order_item_dict: "
+                    f"{order_item_dict["flavors"]}"
+                )
 
         else:  # invalid input => print error msg & restart loop
             print(f"Try again.\nChoose between {FLAVORS}")
@@ -231,7 +240,10 @@ def make_ice_cream_order(order_item_dict: dict, order_list: list) -> list[dict]:
                 "\nWould like to add something to your order? (Y)es or (N)o: "
             ).lower()
 
-            # if order is complete, change flag, exit order while loop, display details of order
+            """
+            if order is complete, change flag, exit order while loop,
+            display details of order
+            """
             if order_complete_response == "n":
                 isOrderComplete = True  # switch loop variable to exit loop
 
