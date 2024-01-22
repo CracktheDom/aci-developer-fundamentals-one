@@ -155,8 +155,8 @@ def get_flavors(order_item_dict: dict) -> dict:
     flavor_selections: list = list()
 
     print(
-        f"Next, select your {order_item_dict[num_of_scoops]} "
-        f"flavor{'s' if order_item_dict[num_of_scoops] > 1 else ""}"
+        f"Next, select your {order_item_dict["num_of_scoops"]} "
+        f"flavor{'s' if order_item_dict["num_of_scoops"] != 1 else ""}"
     )
 
     while not isFlavorSelected:
@@ -165,6 +165,24 @@ def get_flavors(order_item_dict: dict) -> dict:
             "chocolate, cherry, mint, peach, grape".title()
         )
 
+        print("Input 'V' for Vanilla")
+        print("Input 'S' for Strawberry")
+        print("Input 'L' for Chocolate")
+        print("Input 'Y' for Cherry")
+        print("Input 'M' for Mint")
+        print("Input 'P' for Peach")
+        print("Input 'G' for Grape")
+
+        flavor_dict = {
+            'v': "Vanilla",
+            's': "Strawberry",
+            'l': "Chocolate",
+            'y': "Cherry",
+            'm': "Mint",
+            'p': "Peach",
+            'g': "Grape"
+        }
+
         # prompt for input of # of flavor(s)
         flavor_response = input(
             f"\nWhich flavor would you like for your "
@@ -172,10 +190,26 @@ def get_flavors(order_item_dict: dict) -> dict:
         ).lower()
 
         # validate flavor(s) response
-        if flavor_response in FLAVORS:
+        if flavor_response in "vslympg":
+            # map user input to string
+            if flavor_response == 'v':
+                flavor_response = flavor_dict['v']
+            elif flavor_response == 's':
+                flavor_response = flavor_dict['s']
+            elif flavor_response == 'l':
+                flavor_response = flavor_dict['l']
+            elif flavor_response == 'y':
+                flavor_response = flavor_dict['y']
+            elif flavor_response == 'm':
+                flavor_response = flavor_dict['m']
+            elif flavor_response == 'p':
+                flavor_response = flavor_dict['p']
+            elif flavor_response == 'g':
+                flavor_response = flavor_dict['g']
+
             # add flavor_response to list of flavor selections
             print(
-                  f"You selected {flavor_response.title()} as your "
+                  f"\nYou selected {flavor_response.title()} as your "
                   f"{ordinal_map[len(flavor_selections) + 1]} scoop."
             )
             flavor_selections.append(flavor_response)
@@ -237,7 +271,9 @@ def make_ice_cream_order(order_item_dict: dict, order_list: list) -> list[dict]:
         while order_complete_response not in ("y", "n"):
             # prompt if order is complete
             order_complete_response = input(
-                "\nWould like to add something to your order? (Y)es or (N)o: "
+                "\nWould like to add something to your order? "
+                "\nInput 'Y' for Yes "
+                "\nInput 'N' for No: "
             ).lower()
 
             """
@@ -261,7 +297,7 @@ def make_ice_cream_order(order_item_dict: dict, order_list: list) -> list[dict]:
                 order_list.append(item_complete)
 
                 # reinitialize order_item_dict to accept attributes for new item
-                item_dict: dict[str: str | int | list] = {
+                order_item_dict: dict[str: str | int | list] = {
                     "container_type": "",
                     "num_of_scoops": 0,
                     "flavors": [],
