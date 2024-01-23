@@ -159,6 +159,16 @@ def get_flavors(order_item_dict: dict) -> dict:
         f"flavor{'s' if order_item_dict["num_of_scoops"] != 1 else ""}"
     )
 
+    flavor_dict = {
+        'v': "Vanilla",
+        's': "Strawberry",
+        'l': "Chocolate",
+        'y': "Cherry",
+        'm': "Mint",
+        'p': "Peach",
+        'g': "Grape"
+    }
+
     while not isFlavorSelected:
         print(
             "\nAvailable flavors: vanilla, strawberry, "
@@ -172,16 +182,6 @@ def get_flavors(order_item_dict: dict) -> dict:
         print("Input 'M' for Mint")
         print("Input 'P' for Peach")
         print("Input 'G' for Grape")
-
-        flavor_dict = {
-            'v': "Vanilla",
-            's': "Strawberry",
-            'l': "Chocolate",
-            'y': "Cherry",
-            'm': "Mint",
-            'p': "Peach",
-            'g': "Grape"
-        }
 
         # prompt for input of # of flavor(s)
         flavor_response = input(
