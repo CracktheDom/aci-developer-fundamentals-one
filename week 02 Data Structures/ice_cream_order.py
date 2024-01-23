@@ -92,7 +92,6 @@ def get_num_scoops(order_item_dict: dict) -> dict:
         )
         # validate scoop response
         try:
-
             # convert response to int datatype
             num_scoops_response = int(num_scoops_response)
 
@@ -107,7 +106,7 @@ def get_num_scoops(order_item_dict: dict) -> dict:
                 )
                 isScoopsSelected = True  # switch loop variable to exit loop
             else:  # invalid number of scoops
-                print(
+                raise ValueError(
                     f"\nTry again.\nChoose between {NUMBER_OF_SCOOPS[0]}, "
                     f"{NUMBER_OF_SCOOPS[1]}, or {NUMBER_OF_SCOOPS[2]} scoops: "
                 )
