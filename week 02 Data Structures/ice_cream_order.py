@@ -323,6 +323,7 @@ def print_order(order_list: list[dict]):
             print(f"a scoop of {flavor.title()}", end=", ")
 
 
+# fmt off
 # Constant variables
 CONTAINER_CHOICE: tuple[str] = ("cone", "cup")
 NUMBER_OF_SCOOPS: tuple[int] = (1, 2, 3)
@@ -335,6 +336,7 @@ FLAVORS: tuple[str] = (
     "peach",
     "grape",
 )
+# fmt on
 
 # Initialize variables
 order_list: list = list()
