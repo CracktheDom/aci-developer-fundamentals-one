@@ -269,8 +269,7 @@ def make_ice_cream_order(order_item_dict: dict, order_list: list) -> list[dict]:
                     "flavors": [],
                 }
 
-                logging.info(f"Contents of order_item_dict: {item_complete}")
-                logging.info(f"Contents of order_list: {order_list}")
+                logging.info(f'Item complete, reinitializing {order_item_dict=}')
 
             else:  # invalid input
                 print("Try again\n")
@@ -278,8 +277,12 @@ def make_ice_cream_order(order_item_dict: dict, order_list: list) -> list[dict]:
             # add completed item to order list
             order_list.append(item_complete)
 
+            logging.info(f"Contents of {order_item_dict}=")
+            logging.info(f"Contents of {item_complete}=")
+
     # logging contents of order_list that is being returned
-    logging.info(f'make_ice_cream_order() returning order_list: {order_list} ')
+    logging.info(f'make_ice_cream_order() returning {order_list}=')
+
     return order_list
 
 
