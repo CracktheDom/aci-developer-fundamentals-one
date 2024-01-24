@@ -158,16 +158,6 @@ def get_flavors(order_item_dict: dict) -> dict:
         f"flavor{'s' if order_item_dict["num_of_scoops"] != 1 else ""}"
     )
 
-    flavor_dict = {
-        'v': "Vanilla",
-        's': "Strawberry",
-        'l': "Chocolate",
-        'y': "Cherry",
-        'm': "Mint",
-        'p': "Peach",
-        'g': "Grape"
-    }
-
     while not is_flavor_selected:
         print(
             "\nAvailable flavors: vanilla, strawberry, "
@@ -189,29 +179,17 @@ def get_flavors(order_item_dict: dict) -> dict:
         ).lower()
 
         # validate flavor(s) response
-        if flavor_response in "vslympg":
+        if flavor_response in FLAVORS.keys():
             # map user input to string
-            if flavor_response == 'v':
-                flavor_response = flavor_dict['v']
-            elif flavor_response == 's':
-                flavor_response = flavor_dict['s']
-            elif flavor_response == 'l':
-                flavor_response = flavor_dict['l']
-            elif flavor_response == 'y':
-                flavor_response = flavor_dict['y']
-            elif flavor_response == 'm':
-                flavor_response = flavor_dict['m']
-            elif flavor_response == 'p':
-                flavor_response = flavor_dict['p']
-            elif flavor_response == 'g':
-                flavor_response = flavor_dict['g']
+            flavor_selection: str = FLAVORS.get(flavor_response)
+
+            print(
+                  f"\nYou selected {flavor_selection.title()} as your "
+                  f"{ordinal_map.get(len(flavor_selections) + 1)} scoop."
+            )
 
             # add flavor_response to list of flavor selections
-            print(
-                  f"\nYou selected {flavor_response.title()} as your "
-                  f"{ordinal_map[len(flavor_selections) + 1]} scoop."
-            )
-            flavor_selections.append(flavor_response)
+            flavor_selections.append(flavor_selection)
 
             # check if all flavors have been selected
             if len(flavor_selections) == order_item_dict["num_of_scoops"]:
@@ -226,7 +204,7 @@ def get_flavors(order_item_dict: dict) -> dict:
                 )
 
         else:  # invalid input => print error msg & restart loop
-            print(f"Try again.\nChoose between {FLAVORS}")
+            print(f"Try again.\nChoose between {FLAVORS.values()}")
 
     # logging contents of order_item_dict that is being returned
     logging.info(
@@ -324,15 +302,15 @@ def print_order(order_list: list[dict]):
 # Constant variables
 CONTAINER_CHOICE: tuple[str] = ("cone", "cup")
 NUMBER_OF_SCOOPS: tuple[int] = (1, 2, 3)
-FLAVORS: tuple[str] = (
-    "vanilla",
-    "strawberry",
-    "chocolate",
-    "cherry",
-    "mint",
-    "peach",
-    "grape",
-)
+FLAVORS: dict[str: str] = {
+    'v': "Vanilla",
+    's': "Strawberry",
+    'l': "Chocolate",
+    'y': "Cherry",
+    'm': "Mint",
+    'p': "Peach",
+    'g': "Grape",
+}
 # fmt on
 
 # Initialize variables
