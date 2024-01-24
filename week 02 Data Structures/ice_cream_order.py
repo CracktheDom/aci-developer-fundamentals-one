@@ -286,11 +286,12 @@ def make_ice_cream_order(order_item_dict: dict, order_list: list) -> list[dict]:
 def print_order(order_list: list[dict]):
     for order in order_list:
         print(
-              f"You ordered a {order["container_type"]} with ",
-              end=""
-        )
-        for flavor in order["flavor"]:
+              f"You ordered a {order["container_type"]} with ", end="")
+        for flavor in order["flavors"]:
             print(f"a scoop of {flavor.title()}", end=", ")
+
+        print()
+    print('Thank you for your order.')
 
 
 # fmt off
@@ -327,5 +328,5 @@ logging.basicConfig(
 )
 
 print("Greetings, how can I help you today?")
-make_ice_cream_order(item_dict, order_list)
-# print_order(order_list)
+order_list = make_ice_cream_order(item_dict, order_list)
+print_order(order_list)
