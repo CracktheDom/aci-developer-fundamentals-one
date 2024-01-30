@@ -104,8 +104,8 @@ def get_num_scoops(order_item_dict: dict) -> dict:
                 order_item_dict["num_of_scoops"] = num_scoops_response
 
                 print(
-                    f'You selected {order_item_dict.get("num_of_scoops")} '
-                    f'scoop{'s' if order_item_dict.get("num_of_scoops") > 1 else ""}.'
+                    f"You selected {order_item_dict.get('num_of_scoops')} "
+                    f"scoop{'s' if order_item_dict.get('num_of_scoops') != 1 else ''}."
                 )
                 is_scoops_selected = True  # switch loop variable to exit loop
             else:  # invalid number of scoops
@@ -144,11 +144,7 @@ def get_flavors(order_item_dict: dict) -> dict:
     logging.info(f'{LINE_FILL}Entering get_flavors(){LINE_FILL}')
 
     # dict to provide correct string for first, second or third scoop
-    ordinal_map: dict[int: str] = {
-        1: "first",
-        2: "second",
-        3: "third"
-    }
+    ordinal_map: dict[int:str] = {1: "first", 2: "second", 3: "third"}
 
     is_flavor_selected: bool = False  # Initialize loop variable
 
@@ -156,8 +152,8 @@ def get_flavors(order_item_dict: dict) -> dict:
     flavor_selections: list = list()
 
     print(
-        f"Next, select your {order_item_dict["num_of_scoops"]} "
-        f"flavor{'s' if order_item_dict["num_of_scoops"] != 1 else ""}"
+        f"Next, select your {order_item_dict['num_of_scoops']} "
+        f"flavor{'s' if order_item_dict['num_of_scoops'] != 1 else ''}"
     )
 
     while not is_flavor_selected:
@@ -200,7 +196,7 @@ def get_flavors(order_item_dict: dict) -> dict:
                 # add flavor selection to dict
                 order_item_dict["flavors"] = flavor_selections
 
-                logging.info(F"Flavors added to {order_item_dict['flavors']=}")
+                logging.info(f"Flavors added to {order_item_dict['flavors']=}")
 
         else:  # invalid input => print error msg & restart loop
             print(f"Try again.\nChoose between {FLAVORS.values()}")
@@ -233,14 +229,12 @@ def make_ice_cream_order(order_item_dict: dict, order_list: list) -> list[dict]:
     # start the order probably use while loop
     while not is_order_complete:
         item_complete: dict = get_flavors(  # get flavors
-
-                                # gets number of scoops
-                                get_num_scoops(
-
-                                    # gets container type
-                                    get_container_type(order_item_dict)
-                                )
-                            )
+            # gets number of scoops
+            get_num_scoops(
+                # gets container type
+                get_container_type(order_item_dict)
+            )
+        )
         order_complete_response: str = ""  # Initialize loop variable
 
         while order_complete_response not in ("y", "n"):
@@ -288,13 +282,11 @@ def make_ice_cream_order(order_item_dict: dict, order_list: list) -> list[dict]:
 
 def print_order(order_list: list[dict]):
     for order in order_list:
-        print(
-              f"You ordered a {order["container_type"]} with ", end="")
+        print(f"You ordered a {order['container_type']} with ", end="")
         for flavor in order["flavors"]:
             print(f"a scoop of {flavor.title()}", end=", ")
 
-        print()
-    print('Thank you for your order.')
+    print("\nThank you for your order.")
 
 
 # fmt off
@@ -330,6 +322,11 @@ logging.basicConfig(
     style='{'
 )
 
-print("Greetings, how can I help you today?")
-order_list = make_ice_cream_order(item_dict, order_list)
-print_order(order_list)
+# print("Greetings, how can I help you today?")
+# order_list = make_ice_cream_order(item_dict, order_list)
+# print_order(order_list)
+
+if __name__ == "__main__":
+    make_ice_cream_order(item_dict, order_list)
+
+# TODO: Think about modularity, break repetitive validation into separate function(s)
