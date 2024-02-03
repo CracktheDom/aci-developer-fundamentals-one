@@ -7,7 +7,7 @@ class Artist:
 
     Attributes:
         name (str): The name of the artist.
-        albums (list): A list of albums associated with the artist.
+        albums (dict): A dict of albums associated with the artist.
         artist_id (uuid.UUID): Unique identifier for the artist.
     """
 
@@ -19,7 +19,7 @@ class Artist:
             name (str): The name of the artist.
         """
         self.artist_name: str = name
-        self.albums: list = list()
+        self.albums: dict = dict()
 
         # Generate a unique ID for the artist
         self.artist_id: uuid.UUID = uuid.uuid4()
@@ -29,9 +29,9 @@ class Artist:
         Adds an album to the artist's collection.
 
         Args:
-            album: The album object to be added.
+            Album: The album object to be added.
         """
-        self.albums.append(Album)
+        self.albums[Album.album_name] = Album
 
     def __str__(self) -> str:
         """
@@ -70,10 +70,9 @@ class Album:
             track_list (list): The list that contains Track objects associated with album
         """
         self.album_name: str = name
-        # self.artist = artist
         self.artist_id: uuid.UUID = artist_id
         self.album_id: uuid.UUID = uuid.uuid4()  # Generate a unique ID for the album
-        self.track_list: list = track_list
+        self.track_list: list = list()
 
     def __str__(self) -> str:
         """
@@ -91,6 +90,7 @@ class Album:
         Args:
             track: The Track object to be added.
         """
+        Track.album_id = self.album_id
         self.track_list.append(Track)
 
 
@@ -105,7 +105,13 @@ class Track:
         duration (int): The duration of the track in seconds.
     """
 
-    def __init__(self, number: int, name: str, duration: int, album_id: uuid.UUID):
+    def __init__(
+        self,
+        number: int,
+        name: str,
+        duration: int,
+        # album_id: uuid.UUID
+    ):
         """
         Initializes a Track object.
 
@@ -116,7 +122,7 @@ class Track:
             album_id (uuid.UUID): Unique identifier for the album associated with the track.
         """
         self.number: int = number
-        self.album_id: uuid.UUID = album_id
+        self.album_id: uuid.UUID = ""
         self.track_name: str = name
         self.duration: int = duration
 
@@ -149,22 +155,19 @@ def main() -> None:
         # artist=men_i_trust,
     )
 
-    # Use Artist method to album to list of albums in Artist object
-    men_i_trust.add_album(
-        Album(
-            artist_id=men_i_trust.artist_id,
-            # artist=men_i_trust,
-            name="Oncle Jazz",
-            track_list=[
-                Track(
-                    1,
-                    "Organon",
-                    2 * SECONDS_PER_MINUTE + 30,
-                    album_id=untourable_album.album_id,
-                )
-            ],
+    oncle_jazz = Album(artist_id=men_i_trust.artist_id, name="Oncle Jazz")
+
+    untourable_album.add_track(
+        Track(
+            1,
+            "Organon",
+            2 * SECONDS_PER_MINUTE + 30,
+            # album_id=untourable_album.album_id,
         )
     )
+
+    # Use Artist method to album to list of albums in Artist object
+    men_i_trust.add_album(oncle_jazz)
 
     # Create new Track objects and append them to Album object
     untourable_album.add_track(
@@ -172,7 +175,7 @@ def main() -> None:
             4,
             "Sorbitol",
             2 * SECONDS_PER_MINUTE + 58,
-            album_id=untourable_album.album_id,
+            # album_id=untourable_album.album_id,
         )
     )
     untourable_album.add_track(
@@ -180,12 +183,15 @@ def main() -> None:
             5,
             "Tree Among Shrubs",
             3 * SECONDS_PER_MINUTE + 8,
-            album_id=untourable_album.album_id,
+            # album_id=untourable_album.album_id,
         )
     )
     untourable_album.add_track(
         Track(
-            3, "Sugar", 2 * SECONDS_PER_MINUTE + 56, album_id=untourable_album.album_id
+            3,
+            "Sugar",
+            2 * SECONDS_PER_MINUTE + 56,
+            # album_id=untourable_album.album_id
         )
     )
     untourable_album.add_track(
@@ -193,44 +199,44 @@ def main() -> None:
             2,
             "Oh Dove",
             3 * SECONDS_PER_MINUTE + 16,
-            album_id=untourable_album.album_id,
+            # album_id=untourable_album.album_id,
         )
     )
 
     # Add Album object to Artist object's list of albums
-    men_i_trust.albums.append(untourable_album)
+    men_i_trust.add_album(untourable_album)
 
     # Create new Track objects and append them to Album object
-    men_i_trust.albums[0].add_track(
+    men_i_trust.albums.get("Oncle Jazz").add_track(
         Track(
             name="Oncle Jazz",
             duration=57,
             number=1,
-            album_id=men_i_trust.albums[0].album_id,
+            # album_id=men_i_trust.albums.get("Oncle Jazz").album_id,
         )
     )
-    men_i_trust.albums[0].add_track(
+    men_i_trust.albums.get("Oncle Jazz").add_track(
         Track(
             3,
             "Days Go By",
             3 * SECONDS_PER_MINUTE + 26,
-            album_id=men_i_trust.albums[0].album_id,
+            # album_id=men_i_trust.albums.get("Oncle Jazz").album_id,
         )
     )
-    men_i_trust.albums[0].add_track(
+    men_i_trust.albums.get("Oncle Jazz").add_track(
         Track(
             15,
             "Show Me How",
             3 * SECONDS_PER_MINUTE + 35,
-            album_id=men_i_trust.albums[0].album_id,
+            # album_id=men_i_trust.albums.get("Oncle Jazz").album_id,
         )
     )
-    men_i_trust.albums[0].add_track(
+    men_i_trust.albums.get("Oncle Jazz").add_track(
         Track(
             17,
             "You Deserve This",
             3 * SECONDS_PER_MINUTE + 5,
-            album_id=men_i_trust.albums[0].album_id,
+            # album_id=men_i_trust.albums.get("Oncle Jazz").album_id,
         )
     )
 
@@ -247,20 +253,25 @@ def print_album_tracks(artist: Artist) -> str:
     """
     if len(artist.albums) > 0:
         print(f"Artist name: {artist.artist_name}")
-        for album in artist.albums:
-            print(f"  Album: {album.album_name}")
+        for v in artist.albums.values():
+            print(f"  Album: {v.album_name}")
             print("    Tracks:")
+
+            album_duration = 0  # Track duration of album
+
             # Sort tracks by track number
-            for album_track in sorted(album.track_list, key=lambda track: track.number):
+            for album_track in sorted(v.track_list, key=lambda track: track.number):
+                album_duration += album_track.duration
                 print(f"      {album_track.number:2d}: {album_track.track_name}")
 
             # Calculate and print total runtime of the album
-            print(
-                f"  Total runtime is {sum([track.duration for track in album.track_list])} seconds\n"
-            )
+            print(f"  Total runtime is {album_duration} seconds\n")
     else:
         # If no albums are associated with the artist
         print(f"No albums associated with the artist, {artist.name}")
+
+
+# {"Oncle Jazz": Album(name, artist_id), "untourable album": Album(name, artist_id)}
 
 
 # Constant variable

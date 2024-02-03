@@ -20,7 +20,7 @@ def test_artist_albums_exists():
 
 
 def test_artist_albums_type():
-    assert isinstance(artist.albums, list)
+    assert isinstance(artist.albums, dict)
 
 
 def test_artist_artist_id_exists():
@@ -36,7 +36,7 @@ def test_artist_albums_duration():
 
 
 def test_artist_albums_elem_type():
-    for album in artist.albums:
+    for _, album in artist.albums.items():
         assert isinstance(album, Album)
 
 
@@ -136,13 +136,13 @@ def test_seconds_per_minute_equals():
 def test_artist_add_album():
     second_album = Album(name="Chronicles of a Diamond", artist_id=artist.artist_id)
     artist.add_album(second_album)
-    assert artist.albums[-1] is second_album
+    assert second_album in artist.albums.values()
 
 
 def test_album_add_track():
     another_track = Track(
         name="Oct 33",
-        album_id=album.album_id,
+        # album_id=album.album_id,
         number=5,
         duration=4 * SECONDS_PER_MINUTE + 49,
     )
@@ -157,12 +157,17 @@ album = Album(
     artist_id=artist.artist_id,
     # artist,
 )
-track = Track(album_id=album.album_id, name="Black Moon Rising", duration=222, number=1)
+track = Track(
+    # album_id=album.album_id,
+    name="Black Moon Rising",
+    duration=222,
+    number=1,
+)
 album.add_track(track)
 album.add_track(
     Track(
-        album_id=album.album_id,
-        # minutes * seconds/minute + remaining seconds
+        # album_id=album.album_id,
+        # minutes * 60 seconds/minute + remaining seconds
         duration=4 * SECONDS_PER_MINUTE + 6,
         number=4,
         name="Fire",
@@ -170,7 +175,7 @@ album.add_track(
 )
 album.add_track(
     Track(
-        album_id=album.album_id,
+        # album_id=album.album_id,
         number=2,
         name="Colors",
         duration=4 * SECONDS_PER_MINUTE + 6,
@@ -178,7 +183,7 @@ album.add_track(
 )
 album.add_track(
     Track(
-        album_id=album.album_id,
+        # album_id=album.album_id,
         number=3,
         name="Know Better",
         duration=4 * SECONDS_PER_MINUTE + 9,
