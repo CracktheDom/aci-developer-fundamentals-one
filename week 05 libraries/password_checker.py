@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+
+from string import digits, ascii_lowercase, ascii_uppercase, punctuation
+from check_password_attributes import *
+
+
 """
 Task: Password checker
 
@@ -18,3 +24,45 @@ Use the following steps to help you build the program:
 
     3. Write a script that imports the appropriate function(s), and asks the user to input a password. When the program runs, it should print out the strength of the provided password and a message about whether it is strong enough, or if the user should try again.
 """
+
+
+def compute_password_strength(password: str) -> int:
+    """
+    Compute the strength score of a password based on certain attributes.
+
+    Args:
+        password (str): The password to assess.
+
+    Returns:
+        int: The strength score of the password.
+    """
+    strength_score: int = 0
+    if contains_upper(password):
+        strength_score += 1
+    if contains_special(password):
+        strength_score += 1
+    if contains_lower(password):
+        strength_score += 1
+    if contains_number(password):
+        strength_score += 1
+    return strength_score
+
+
+def main():
+    """
+    Main function to assess the strength of a password.
+    """
+    # Compute the strength score of the input password
+    strength_score = compute_password_strength(
+        input("Input your password to assess its strength: ")
+    )
+
+    # Evaluate the strength score and print the result
+    if strength_score == 4:
+        print(f"Password Strength: {strength_score}\nStrong Password")
+    else:
+        print(f"Password Strength: {strength_score}\nWeak Password\nTry Again")
+
+
+if __name__ == "__main__":
+    main()
