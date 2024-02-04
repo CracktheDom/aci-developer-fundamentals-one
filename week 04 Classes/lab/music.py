@@ -1,4 +1,5 @@
 import uuid
+import logging
 
 
 class Artist:
@@ -147,6 +148,7 @@ def main() -> None:
 
     # Create new Artist object
     men_i_trust: Artist = Artist(name="Men I Trust")
+    logging.info(f"Artist object {men_i_trust=} created")
 
     # Create new Album objects
     untourable_album: Album = Album(
@@ -154,8 +156,12 @@ def main() -> None:
         artist_id=men_i_trust.artist_id
         # artist=men_i_trust,
     )
+    logging.info(f"Album object {untourable_album=} created")
+    logging.info(f"Contents of {untourable_album.track_list=}")
 
     oncle_jazz = Album(artist_id=men_i_trust.artist_id, name="Oncle Jazz")
+    logging.info(f"Album object {oncle_jazz=} created")
+    logging.info(f"Contents of {oncle_jazz.track_list=}")
 
     untourable_album.add_track(
         Track(
@@ -165,9 +171,13 @@ def main() -> None:
             # album_id=untourable_album.album_id,
         )
     )
+    logging.info(f"Track object, {untourable_album.track_list[0]=} created")
+    logging.info(f"Contents of {oncle_jazz.track_list=}")
+    logging.info(f"Contents of {untourable_album.track_list=}")
 
     # Use Artist method to album to list of albums in Artist object
     men_i_trust.add_album(oncle_jazz)
+    logging.info(f"{oncle_jazz=} added to {men_i_trust.albums=}")
 
     # Create new Track objects and append them to Album object
     untourable_album.add_track(
@@ -177,6 +187,9 @@ def main() -> None:
             2 * SECONDS_PER_MINUTE + 58,
             # album_id=untourable_album.album_id,
         )
+    )
+    logging.info(
+        f"{untourable_album.track_list[1]=} added to {untourable_album.track_list=}"
     )
     untourable_album.add_track(
         Track(
@@ -276,6 +289,15 @@ def print_album_tracks(artist: Artist) -> str:
 
 # Constant variable
 SECONDS_PER_MINUTE: int = 60
+
+# set up logging configuration
+logging.basicConfig(
+    level=logging.DEBUG,
+    filemode="a",
+    filename="music.log",
+    format="{asctime} {levelname} {message}",
+    style="{",
+)
 
 if __name__ == "__main__":
     main()
