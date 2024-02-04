@@ -29,7 +29,7 @@ def parse_products(file_path: str) -> list[dict]:
     except IOError as e:
         logging.error(f"{e}: {file_path} does not exist")
         print(f"{file_path} does not exist")
-        return []
+        return inventory_list
 
     for obj_elem in json_obj:
         if "price" in obj_elem and "name" in obj_elem:
@@ -46,35 +46,37 @@ def parse_products(file_path: str) -> list[dict]:
     return inventory_list
 
 
-def write_to_file(file_path: str, products: list):
+def write_to_json_file(json_file_path: str, products_list: list):
     """
     Write a list of products to a JSON file.
 
     Args:
-    - file_path (str): The path to the JSON file where the products will be
-    written.
-    - products (list): A list of dictionaries representing products, each with
-    a name, price, and description.
+    - json_file_path (str): The path to the JSON file where the products will
+      be written.
+    - products_list (list): A list of dictionaries representing products, each
+      with a name, price, and description.
 
     Note:
     - If an error occurs during writing, it is logged and error is displayed.
     """
     try:
-        with open(file_path, "w") as file_pointer:
-            products_json = json.dump(products, indent=4, fp=file_pointer)
-            logging.info(f"Successfully wrote data to {file_pointer}")
+        with open(json_file_path, "w") as file_pointer:
+            json.dump(products_list, indent=4, fp=file_pointer)
+            logging.info(f"Successfully wrote data to {file_pointer=}")
     except Exception as e:
         logging.error(
             f"An error occurred while trying to write to {file_pointer}, error is: {e}"
         )
-        print(f"An error occurred while trying to write to {file_path}")
+        print(f"An error occurred while trying to write to {json_file_path}")
 
 
+# Configure logging
 logging.basicConfig(
     filename="./prod_validation.log",
-    format="%(asctime)s %(levelname)s %(message)s",
+    format="{asctime} {levelname} {message}",
+    style="{",
     level=logging.INFO,
 )
 
 if __name__ == "__main__":
-    write_to_file("./inventory.json", parse_products("./prod_sample.json"))
+    write_to_json_file("./inventory.json", parse_products("./prod_sample.json"))
