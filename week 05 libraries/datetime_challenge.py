@@ -10,6 +10,7 @@
  """
 
 
+import sys
 from datetime import datetime
 
 
@@ -52,7 +53,30 @@ def next_friday(date_string: str) -> int:
     return day_of_week
 
 
-# Test cases
-assert next_friday("7-28-2023") == 0
-assert next_friday("7-29-2023") == 6
-assert next_friday("8-2-2023") == 2
+def main():
+    """
+    Runs main process of program and prints how days until next Friday.
+
+    Args:
+      - None
+
+    Returns:
+      - None
+    """
+
+    print(
+        f"There are {next_friday(sys.argv[1])} days from {sys.argv[1]} until next Friday."
+    )
+
+
+def test_next_friday():
+    # Test cases
+    assert next_friday("07-28-2023") == 0
+    assert next_friday("7-29-2023") == 6
+    assert next_friday("08-2-2023") == 2
+    assert next_friday("7-27-2023") == 1
+    assert next_friday("7-26-2023") == 2
+
+
+if __name__ == "__main__":
+    main()
