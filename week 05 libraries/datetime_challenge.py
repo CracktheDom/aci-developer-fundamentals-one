@@ -10,10 +10,10 @@
  """
 
 
-import datetime
+from datetime import datetime
 
 
-def next_friday(date: str) -> int:
+def next_friday(date_string: str) -> int:
     """
     Calculate the number of days until the next Friday from the given date.
 
@@ -39,12 +39,12 @@ def next_friday(date: str) -> int:
 
     # Convert the input date string to a datetime object
     try:
-        new_date = datetime.datetime.strptime(date, date_format)
+        new_date: datetime.datetime = datetime.strptime(date_string, date_format)
     except ValueError:
-        raise ValueError("Invalid date format. Please use 'MM-DD-YYYY'.")
+        print("Invalid date format. Please use 'MM-DD-YYYY'.")
 
-    # Get the day of the week (0 is Monday, 1 is Tuesday, ..., 6 is Sunday)
-    day_of_week = int(new_date.strftime("%w"))
+    # Get the day of the week (0 is Sunday, 2 is Tuesday, ..., 6 is Saturday)
+    day_of_week: int = int(new_date.strftime("%w"))
 
     # Calculate the number of days until the next Friday
     if day_of_week <= 5:
