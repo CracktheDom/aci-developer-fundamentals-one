@@ -39,7 +39,7 @@ def get_container_type(order_item_dict: dict) -> dict:
     - The function uses global variables and logs information about the process.
     """
     # Entry point for logging
-    logging.info(f'{LINE_FILL}Entering get_container_type(){LINE_FILL}')
+    logging.debug(f"{__LINE_FILL}Entering get_container_type(){__LINE_FILL}")
 
     is_container_chosen: bool = False  # Initialize loop variable/flag
     while not is_container_chosen:
@@ -48,7 +48,7 @@ def get_container_type(order_item_dict: dict) -> dict:
             f"What type of container would you like, {CONTAINER_CHOICE[0]} or "
             f"{CONTAINER_CHOICE[1]}? "
         ).lower()
-        logging.info(f'Contents of {container_response=}')
+        logging.debug(f"Contents of {container_response=}")
 
         # validate container input
         if container_response in CONTAINER_CHOICE:
@@ -57,14 +57,14 @@ def get_container_type(order_item_dict: dict) -> dict:
 
             print(f'You selected a {order_item_dict.get("container_type")}.')
             is_container_chosen = True  # switch loop variable to exit loop
-            logging.info(f'Contents of {order_item_dict.get("container_type")=}')
+            logging.debug(f'Contents of {order_item_dict.get("container_type")=}')
         else:  # invalid input => print error msg & restart loop
             print(
                 f"\nTry again.\nChoose between {CONTAINER_CHOICE[0]} or "
                 f"{CONTAINER_CHOICE[1]}: "
             )
     # logging contents of order_item_dict that is being returned
-    logging.info(f'get_container_type() returning {order_item_dict=}')
+    logging.debug(f"get_container_type() returning {order_item_dict=}")
 
     return order_item_dict
 
@@ -84,7 +84,7 @@ def get_num_scoops(order_item_dict: dict) -> dict:
     - The function uses global variables and logs information about the process.
     """
     # Entry point for logging
-    logging.info(f'{LINE_FILL}Entering get_num_scoops(){LINE_FILL}')
+    logging.debug(f"{__LINE_FILL}Entering get_num_scoops(){__LINE_FILL}")
 
     is_scoops_selected: bool = False  # Initialize loop flag/variable
     while not is_scoops_selected:
@@ -122,7 +122,7 @@ def get_num_scoops(order_item_dict: dict) -> dict:
             )
 
     # logging contents of order_item_dict that is being returned
-    logging.info(f"{LINE_FILL}get_num_scoops() returning {order_item_dict=}")
+    logging.debug(f"{__LINE_FILL}get_num_scoops() returning {order_item_dict=}")
 
     return order_item_dict
 
@@ -141,7 +141,7 @@ def get_flavors(order_item_dict: dict) -> dict:
     Note:
     - The function uses global variables and logs information about the process.
     """
-    logging.info(f'{LINE_FILL}Entering get_flavors(){LINE_FILL}')
+    logging.debug(f"{__LINE_FILL}Entering get_flavors(){__LINE_FILL}")
 
     # dict to provide correct string for first, second or third scoop
     ordinal_map: dict[int:str] = {1: "first", 2: "second", 3: "third"}
@@ -196,13 +196,13 @@ def get_flavors(order_item_dict: dict) -> dict:
                 # add flavor selection to dict
                 order_item_dict["flavors"] = flavor_selections
 
-                logging.info(f"Flavors added to {order_item_dict['flavors']=}")
+                logging.debug(f"Flavors added to {order_item_dict['flavors']=}")
 
         else:  # invalid input => print error msg & restart loop
             print(f"Try again.\nChoose between {FLAVORS.values()}")
 
     # logging contents of order_item_dict that is being returned
-    logging.info(f"get_flavors() returning {order_item_dict=}")
+    logging.debug(f"get_flavors() returning {order_item_dict=}")
 
     return order_item_dict
 
@@ -223,7 +223,7 @@ def make_ice_cream_order(order_item_dict: dict, order_list: list) -> list[dict]:
     Note:
     - The function logs information about the process.
     """
-    logging.info(f"{LINE_FILL}Entered make_ice_cream_order(){LINE_FILL}")
+    logging.debug(f"{__LINE_FILL}Entered make_ice_cream_order(){__LINE_FILL}")
     is_order_complete: bool = False  # Initialize loop variable
 
     # start the order probably use while loop
@@ -263,7 +263,7 @@ def make_ice_cream_order(order_item_dict: dict, order_list: list) -> list[dict]:
                     "flavors": [],
                 }
 
-                logging.info(f'Item complete, reinitializing {order_item_dict=}')
+                logging.debug(f"Item complete, reinitializing {order_item_dict=}")
 
             else:  # invalid input
                 print("Try again\n")
@@ -271,11 +271,11 @@ def make_ice_cream_order(order_item_dict: dict, order_list: list) -> list[dict]:
             # add completed item to order list
             order_list.append(item_complete)
 
-            logging.info(f"Contents of {order_item_dict}=")
-            logging.info(f"Contents of {item_complete}=")
+            logging.debug(f"Contents of {order_item_dict}=")
+            logging.debug(f"Contents of {item_complete}=")
 
     # logging contents of order_list that is being returned
-    logging.info(f'make_ice_cream_order() returning {order_list}=')
+    logging.debug(f"make_ice_cream_order() returning {order_list}=")
 
     return order_list
 
