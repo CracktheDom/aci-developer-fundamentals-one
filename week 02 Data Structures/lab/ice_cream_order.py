@@ -2,7 +2,8 @@
 
 import logging
 
-"""For this task, imagine that you are the proud owner of an ice cream shop. As
+"""
+For this task, imagine that you are the proud owner of an ice cream shop. As
 an entrepreneur, you know that increased efficiency can be the thing that sets
 you apart from other stores. With all that you now know about iterables, data
 types, conditionals, and user input, you're ready to build the logic for an
@@ -21,7 +22,8 @@ Flavor               vanilla, strawberry, chocolate, cherry, mint, peach, or
 Write a program that greets customers and takes their ice cream order. Allow
 customers to order multiple cones or cups, with a different flavor possible for
 each scoop. If a customer enters an invalid option, notify them of the error
-and prompt them again."""
+and prompt them again.
+"""
 
 
 def get_container_type(order_item_dict: dict) -> dict:
@@ -45,13 +47,13 @@ def get_container_type(order_item_dict: dict) -> dict:
     while not is_container_chosen:
         # prompt for input for container type, while loop until valid input
         container_response = input(
-            f"What type of container would you like, {CONTAINER_CHOICE[0]} or "
-            f"{CONTAINER_CHOICE[1]}? "
+            f"What type of container would you like, {__CONTAINER_CHOICE[0]} or "
+            f"{__CONTAINER_CHOICE[1]}? "
         ).lower()
         logging.debug(f"Contents of {container_response=}")
 
         # validate container input
-        if container_response in CONTAINER_CHOICE:
+        if container_response in __CONTAINER_CHOICE:
             # add container response to order variable, possibly dict
             order_item_dict["container_type"] = container_response
 
@@ -60,8 +62,8 @@ def get_container_type(order_item_dict: dict) -> dict:
             logging.debug(f'Contents of {order_item_dict.get("container_type")=}')
         else:  # invalid input => print error msg & restart loop
             print(
-                f"\nTry again.\nChoose between {CONTAINER_CHOICE[0]} or "
-                f"{CONTAINER_CHOICE[1]}: "
+                f"\nTry again.\nChoose between {__CONTAINER_CHOICE[0]} or "
+                f"{__CONTAINER_CHOICE[1]}: "
             )
     # logging contents of order_item_dict that is being returned
     logging.debug(f"get_container_type() returning {order_item_dict=}")
@@ -91,7 +93,7 @@ def get_num_scoops(order_item_dict: dict) -> dict:
         # prompt for input of # of scoops
         num_scoops_response: str = input(
             "\nHow many scoops would you like?"
-            f"\nYou can choose up to {len(NUMBER_OF_SCOOPS)} scoops? "
+            f"\nYou can choose up to {len(__NUMBER_OF_SCOOPS)} scoops? "
         )
         # validate scoop response
         try:
@@ -99,7 +101,7 @@ def get_num_scoops(order_item_dict: dict) -> dict:
             num_scoops_response = int(num_scoops_response)
 
             # checking if user is requesting designated amount of scoops
-            if 0 < num_scoops_response <= max(NUMBER_OF_SCOOPS):
+            if 0 < num_scoops_response <= max(__NUMBER_OF_SCOOPS):
                 # add scoop response to order_item_dict
                 order_item_dict["num_of_scoops"] = num_scoops_response
 
@@ -110,15 +112,15 @@ def get_num_scoops(order_item_dict: dict) -> dict:
                 is_scoops_selected = True  # switch loop variable to exit loop
             else:  # invalid number of scoops
                 raise ValueError(
-                    f"\nTry again.\nChoose between {NUMBER_OF_SCOOPS[0]}, "
-                    f"{NUMBER_OF_SCOOPS[1]}, or {NUMBER_OF_SCOOPS[2]} scoops: "
+                    f"\nTry again.\nChoose between {__NUMBER_OF_SCOOPS[0]}, "
+                    f"{__NUMBER_OF_SCOOPS[1]}, or {__NUMBER_OF_SCOOPS[2]} scoops: "
                 )
 
         # input not numeric => print error msg & restart loop
         except ValueError:
             print(
-                f"\nTry again.\nChoose between {NUMBER_OF_SCOOPS[0]}, "
-                f"{NUMBER_OF_SCOOPS[1]} or {NUMBER_OF_SCOOPS[2]} scoops(s): "
+                f"\nTry again.\nChoose between {__NUMBER_OF_SCOOPS[0]}, "
+                f"{__NUMBER_OF_SCOOPS[1]} or {__NUMBER_OF_SCOOPS[2]} scoops(s): "
             )
 
     # logging contents of order_item_dict that is being returned
@@ -177,9 +179,9 @@ def get_flavors(order_item_dict: dict) -> dict:
         ).lower()
 
         # validate flavor(s) response
-        if flavor_response in FLAVORS.keys():
+        if flavor_response in __FLAVORS.keys():
             # map user input to string
-            flavor_selection: str = FLAVORS.get(flavor_response)
+            flavor_selection: str = __FLAVORS.get(flavor_response)
 
             print(
                   f"\nYou selected {flavor_selection.title()} as your "
@@ -199,7 +201,7 @@ def get_flavors(order_item_dict: dict) -> dict:
                 logging.debug(f"Flavors added to {order_item_dict['flavors']=}")
 
         else:  # invalid input => print error msg & restart loop
-            print(f"Try again.\nChoose between {FLAVORS.values()}")
+            print(f"Try again.\nChoose between {', '.join(__FLAVORS.values())}")
 
     # logging contents of order_item_dict that is being returned
     logging.debug(f"get_flavors() returning {order_item_dict=}")
@@ -290,20 +292,21 @@ def print_order(order_list: list[dict]):
 
 
 # fmt off
+
 # Constant variables
-LINE_FILL: str = r'-' * 12
-CONTAINER_CHOICE: tuple[str] = ("cone", "cup")
-NUMBER_OF_SCOOPS: tuple[int] = (1, 2, 3)
-FLAVORS: dict[str: str] = {
-    'v': "Vanilla",
-    's': "Strawberry",
-    'l': "Chocolate",
-    'y': "Cherry",
-    'm': "Mint",
-    'p': "Peach",
-    'g': "Grape",
+__LINE_FILL: str = r'-' * 12
+__CONTAINER_CHOICE: tuple[str] = ('cone', 'cup')
+__NUMBER_OF_SCOOPS: tuple[int] = (1, 2, 3)
+__FLAVORS: dict[str:str] = {
+    'v': 'Vanilla',
+    's': 'Strawberry',
+    'l': 'Chocolate',
+    'y': 'Cherry',
+    'm': 'Mint',
+    'p': 'Peach',
+    'g': 'Grape',
 }
-# fmt on
+
 
 # Initialize variables
 order_list: list = list()
@@ -316,11 +319,12 @@ item_dict: dict[str: str | int | list] = {
 # set up logging configuration
 logging.basicConfig(
     level=logging.DEBUG,
-    filemode='a',
-    filename='ice_cream.log',
-    format='{asctime} {levelname} {message}',
-    style='{'
+    filemode="a",
+    filename="ice_cream.log",
+    format="{asctime} {levelname} {message}",
+    style="{",
 )
+# fmt on
 
 # print("Greetings, how can I help you today?")
 # order_list = make_ice_cream_order(item_dict, order_list)
