@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-from string import digits, ascii_lowercase, ascii_uppercase, punctuation
 from check_password_attributes import *
 
 
@@ -45,6 +44,8 @@ def compute_password_strength(password: str) -> int:
         strength_score += 1
     if contains_number(password):
         strength_score += 1
+    if is_long_enough(password):
+        strength_score += 1
     return strength_score
 
 
@@ -52,16 +53,18 @@ def main():
     """
     Main function to assess the strength of a password.
     """
-    # Compute the strength score of the input password
-    strength_score = compute_password_strength(
-        input("Input your password to assess its strength: ")
-    )
+    while True:
+        # Compute the strength score of the input password
+        strength_score = compute_password_strength(
+            input("Input your password to assess its strength: ")
+        )
 
-    # Evaluate the strength score and print the result
-    if strength_score == 4:
-        print(f"Password Strength: {strength_score}\nStrong Password")
-    else:
-        print(f"Password Strength: {strength_score}\nWeak Password\nTry Again")
+        # Evaluate the strength score and print the result
+        if strength_score == 5:
+            print(f"Password Strength: {strength_score}\nStrong Password")
+            break
+        else:
+            print(f"Password Strength: {strength_score}\nWeak Password\nTry Again")
 
 
 if __name__ == "__main__":
