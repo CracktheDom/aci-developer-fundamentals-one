@@ -116,10 +116,10 @@ def play():
     """
     Play the Rock-Paper-Scissors-Lizard-Spock game.
     """
-    rps = RPSLS()  # Create object instance of RPSLS class
-    u = rps.get_user_choice()
-    c = rps.get_cpu_choice()
-    rps.check_winner(u, c)
+    rpsls = RPSLS()  # Create object instance of RPSLS class
+    user = rpsls.get_user_choice()
+    comp = rpsls.get_cpu_choice()
+    rpsls.check_winner(user, comp)
 
 
 #  Run as a standalone program if __name__ is __main__
