@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import csv
+import sys
 
 """
 Student GPAs report
@@ -68,13 +69,16 @@ def display_top_three(students: list[Student, ...]) -> str:
     return ", ".join(top_three)
 
 
-def generate_report() -> None:
+def generate_report(file_path: str = "student_records.csv") -> None:
     """
     Generate a report that calculates average GPA, and print the top 3 students with highest GPA
     """
 
+    if len(sys.argv) > 1:  # file path given as argument
+        file_path = sys.argv[1]
+
     # Read student records from a file
-    with open("student_records_07312024_194422.csv", newline="") as csvfile:
+    with open(file_path, newline="") as csvfile:
         csv_reader = csv.reader(csvfile, delimiter=",")
 
         # skip the header in the csv file
