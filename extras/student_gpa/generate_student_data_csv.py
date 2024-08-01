@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import csv
 from random import choice, randint, uniform
 from first_names import first_names
