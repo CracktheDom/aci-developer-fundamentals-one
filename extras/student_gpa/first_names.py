@@ -1,0 +1,33 @@
+first_names: dict[str : list[str, ...]] = {
+    "Hispanic": [
+        "Luis",
+        "Maria",
+        "Carlos",
+        "Ana",
+        "Javier",
+        "Elena",
+        "Diego",
+        "Isabella",
+    ],
+    "Slavic": [
+        "Ivan",
+        "Natalia",
+        "Dmitri",
+        "Olga",
+        "Pavel",
+        "Svetlana",
+        "Vladimir",
+        "Anastasia",
+    ],
+    "African": [
+        "Kwame",
+        "Nadia",
+        "Osei",
+        "Aisha",
+        "Jabari",
+        "Fatima",
+        "Chidi",
+        "Adanna",
+    ],
+    "Asian": ["Hiroshi", "Yuki", "Takumi", "Mei", "Raj", "Sakura", "Wei", "Jia"],
+}
