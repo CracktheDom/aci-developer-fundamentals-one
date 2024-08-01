@@ -77,26 +77,31 @@ def generate_report(file_path: str = "student_records.csv") -> None:
     if len(sys.argv) > 1:  # file path given as argument
         file_path = sys.argv[1]
 
-    # Read student records from a file
-    with open(file_path, newline="") as csvfile:
-        csv_reader = csv.reader(csvfile, delimiter=",")
+    try:
+        # Read student records from a file
+        with open(file_path, newline="") as csvfile:
+            csv_reader = csv.reader(csvfile, delimiter=",")
 
-        # skip the header in the csv file
-        next(csv_reader)
+            # skip the header in the csv file
+            next(csv_reader)
 
-        # store the Student object in a list called students - this is a list of Student objects
-        students: list[Student, ...] = [Student(row) for row in csv_reader]
+            # store the Student object in a list called students - this is a list of Student objects
+            students: list[Student, ...] = [Student(row) for row in csv_reader]
 
-    report_title: str = "Student Report"
+            report_title: str = "Student Report"
 
-    # print header for report
-    print("*" * 30 + "\n" + f"{report_title:^30}" + "\n" + "*" * 30)
+            # print header for report
+            print("*" * 30 + "\n" + f"{report_title:^30}" + "\n" + "*" * 30)
 
-    # display average GPA
-    print(f"Average Student GPA: {calculate_average_gpa(students):.2f}")
+            # display average GPA
+            print(f"Average Student GPA: {calculate_average_gpa(students):.2f}")
 
-    # display top 3 students
-    print(f"Top Three students: {display_top_three(students)}")
+            # display top 3 students
+            print(f"Top Three students: {display_top_three(students)}")
+    except FileNotFoundError:
+        print(
+            f"{file_path} is not found.\nTry to new file path or execute 'generate_student_data_csv.py'"
+        )
 
 
 if __name__ == "__main__":
