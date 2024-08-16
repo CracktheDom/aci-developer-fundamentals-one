@@ -17,5 +17,5 @@ from find_unique_letter_combos import find_unique_letter_combinations
         ("aB", 0),
     ],
 )
-def test_find_unique_letter_combinations(string, result):
+def test_find_unique_letter_combinations(string: str, result: int) -> None:
     assert find_unique_letter_combinations(string) == result
