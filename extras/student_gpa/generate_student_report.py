@@ -65,13 +65,16 @@ def display_top_three(students: list[Student, ...]) -> str:
         str: A string that displays the top three students with the highest GPA.
     """
     students.sort()  # sort list by Student.gpa
-    top_three = [students[i].name for i in range(3)]
+    top_three: list[str, ...] = [students[i].name for i in range(3)]
     return ", ".join(top_three)
 
 
 def generate_report(file_path: str = "student_records.csv") -> None:
     """
     Generate a report that calculates average GPA, and print the top 3 students with highest GPA
+
+    Args:
+        file_path (str): The file path to file that will be read to generate Student object(s).
     """
 
     if len(sys.argv) > 1:  # file path given as argument
@@ -100,7 +103,7 @@ def generate_report(file_path: str = "student_records.csv") -> None:
             print(f"Top Three students: {display_top_three(students)}")
     except FileNotFoundError:
         print(
-            f"{file_path} is not found.\nTry to new file path or execute 'generate_student_data_csv.py'"
+            f"{file_path} is not found.\nTry to new file path or execute 'generate_student_data_csv.py' to generate mock student data file"
         )
 
 
